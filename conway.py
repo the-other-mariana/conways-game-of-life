@@ -12,6 +12,24 @@ ON = 255
 OFF = 0
 vals = [ON, OFF]
 
+BLOCK = np.array([[255, 255],
+                   [255, 255]])
+
+BEEHIVE = np.array([[0, 255, 255, 0],
+                  [255, 0, 0, 255],
+                  [0, 255, 255, 0]])
+
+GLIDER = np.array([[0, 255, 0],
+                   [0, 0, 255],
+                   [255, 255, 255]])
+
+LWSPACESHIP = np.array([[255, 0, 0, 255, 0],
+                       [0, 0, 0, 0, 255],
+                       [255, 0, 0, 0, 255],
+                       [0, 255, 255, 255, 255]])
+
+BEINGS = [GLIDER]
+
 def randomGrid(N):
     """returns a grid of NxN random values"""
     return np.random.choice(vals, N*N, p=[0.2, 0.8]).reshape(N, N)
@@ -26,12 +44,9 @@ def addGlider(i, j, grid):
 def addStillLives(type, i, j, grid):
     life = np.array([])
     if type == "block":
-        life = np.array([[255, 255],
-                       [255, 255]])
+        life = BLOCK
     if type == "beehive":
-        life = np.array([[0, 255, 255, 0],
-                          [255, 0, 0, 255],
-                          [0, 255, 255, 0]])
+        life = BEEHIVE
 
     grid[i:i + len(life), j:j + len(life[0])] = life
 
@@ -39,14 +54,9 @@ def addSpaceship(type, i, j, grid):
     """adds a spaceship with top left cell at (i, j)"""
     spaceship = np.array([])
     if type == "glider":
-        spaceship = np.array([[0, 255, 0],
-                               [0, 0, 255],
-                               [255, 255, 255]])
+        spaceship = GLIDER
     if type == "lwspaceship":
-        spaceship = np.array([[255, 0, 0, 255, 0],
-                               [0, 0, 0, 0, 255],
-                               [255, 0, 0, 0, 255],
-                               [0, 255, 255, 255, 255]])
+        spaceship = LWSPACESHIP
     grid[i:i + len(spaceship), j:j + len(spaceship[0])] = spaceship
 
 def checkCell(r, c, grid):
@@ -61,13 +71,38 @@ def checkCell(r, c, grid):
                 alive += 1
     return alive
 
+def countLife(i, j, grid, g):
+    results = []
+    for b in range(len(BEINGS)):
+        life = BEINGS[b]
+        found = True
+        idx = b
+        for r in range(len(life)):
+            for c in range(len(life[0])):
+                if (i + r) >= len(grid) or (j + c) >= len(grid[0]):
+                    found = False
+                    continue
+                current = int(grid[i + r][j + c])
+                pattern = int(life[r][c])
+                if current != pattern:
+                    found = False
+                    break
+            if not found:
+                break
+        if found:
+            results.append(idx)
+            break
+    return results
+
+
 
 def update(frameNum, img, grid, N, ax):
     # copy grid since we require 8 neighbors for calculation
     # and we go line by line 
     newGrid = grid.copy()
     # TODO: Implement the rules of Conway's Game of Life
-
+    reported = []
+    possible_life = True
     for i in range(N):
         for j in range(N):
             myNeighbours = checkCell(i, j, grid)
@@ -80,8 +115,19 @@ def update(frameNum, img, grid, N, ax):
                 newGrid[i][j] = 0
             if me != 255 and myNeighbours == 3: # reproduction
                 newGrid[i][j] = 255
+
+            res = countLife(i, j, grid, frameNum)
+            if len(res) > 0:
+                reported.append(res)
+
+    print("---- Generation {0} ----".format(frameNum))
+    print("Total Living Beings: {0}".format(len(reported)))
+    for r in range(len(reported)):
+        print("Found: life with index {0}".format(reported[r][0]))
+
+
     # update data
-    ax.set_title("Frame = {0}".format(frameNum))
+    ax.set_title("Generation = {0}".format(frameNum))
     img.set_data(newGrid)
     img.set_cmap('binary')
     grid[:] = newGrid[:]
@@ -105,7 +151,7 @@ def main():
     #N = 20
         
     # set animation update interval
-    updateInterval = 500
+    updateInterval = 1000
 
     # declare grid
     grid = np.array([])
@@ -115,7 +161,7 @@ def main():
     grid = np.zeros(N*N).reshape(N, N)
     #addGlider(1, 1, grid)
 
-    addSpaceship("lwspaceship", 1, 1, grid)
+    addSpaceship("glider", 1, 1, grid)
 
     # set up animation
 
