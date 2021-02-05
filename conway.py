@@ -5,6 +5,7 @@ A simple Python/matplotlib implementation of Conway's Game of Life.
 
 import sys, argparse
 import numpy as np
+import math
 import matplotlib.pyplot as plt 
 import matplotlib.animation as animation
 
@@ -30,9 +31,21 @@ BEINGS = [BLOCK, GLIDER, LWSPACESHIP]
 
 BEINGS_STR = ["block", "glider", "light-weight spaceship"]
 
+REPORT_STR = ""
+
 def randomGrid(N):
     """returns a grid of NxN random values"""
     return np.random.choice(vals, N*N, p=[0.2, 0.8]).reshape(N, N)
+
+def rotate_pt3D(pt, angle_deg):
+    rads = angle_deg * (3.1416 / 180.0)
+    rotMatrixZ = [[math.cos(rads), -1*math.sin(rads), 0], [math.sin(rads), math.cos(rads), 0], [0, 0, 1]]
+    r_pt = [0, 0, 0]
+    for r in range(3):
+        r_pt[r] = 0;
+        for c in range(3):
+            r_pt[r] += rotMatrixZ[r][c] * pt[c]
+    return [r_pt[0], r_pt[1]]
 
 def addGlider(i, j, grid):
     """adds a glider with top left cell at (i, j)"""
@@ -67,7 +80,7 @@ def checkCell(r, c, grid):
                 continue
             if i >= len(grid) or j >= len(grid) or i < 0 or j < 0:
                 continue
-            if grid[i][j] != 0:
+            if int(grid[i][j]) != 0:
                 alive += 1
     return alive
 
@@ -117,7 +130,7 @@ def update(frameNum, img, grid, N, ax):
     for i in range(N):
         for j in range(N):
             myNeighbours = checkCell(i, j, grid)
-            me = grid[i][j]
+            me = int(grid[i][j])
             if me != 0 and myNeighbours < 2: # underpopulation
                 newGrid[i][j] = 0
             if me != 0 and (myNeighbours == 2 or myNeighbours == 3): # next generation
@@ -154,7 +167,7 @@ def main():
     parser = argparse.ArgumentParser(description="Runs Conway's Game of Life system.py.")
     # TODO: add arguments
     if len(sys.argv) < 2:
-        print("Please provide arguments for size and number of generations, both are numbers. Try again.")
+        print("Please provide arguments by typing: python conway.py <size_number> <number_of_generations>")
         return
     elif len(sys.argv) > 1:
         N = int(sys.argv[1])
@@ -174,7 +187,7 @@ def main():
     grid = np.zeros(N*N).reshape(N, N)
     #addGlider(1, 1, grid)
 
-    addSpaceship("glider", 1, 1, grid)
+    addSpaceship("lwspaceship", 1, 1, grid)
     # set up animation
 
     fig, ax = plt.subplots()
