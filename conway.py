@@ -21,15 +21,33 @@ def addGlider(i, j, grid):
     glider = np.array([[0,    255, 0],
                        [0,  0, 255],
                        [255,  255, 255]])
-    grid[i:i+3, j:j+3] = glider
+    grid[i:i + len(glider), j:j + len(glider[0])] = glider
 
-def addLightweightSpaceship(i, j, grid):
-    """adds a lw spaceship with top left cell at (i, j)"""
-    lwship = np.array([[255, 0, 0, 255, 0],
-                       [0, 0, 0, 0, 255],
-                       [255, 0, 0, 0, 255],
-                       [0, 255, 255, 255, 255]])
-    grid[i:i + len(lwship), j:j + len(lwship[0])] = lwship
+def addStillLives(type, i, j, grid):
+    life = np.array([])
+    if type == "block":
+        life = np.array([[255, 255],
+                       [255, 255]])
+    if type == "beehive":
+        life = np.array([[0, 255, 255, 0],
+                          [255, 0, 0, 255],
+                          [0, 255, 255, 0]])
+
+    grid[i:i + len(life), j:j + len(life[0])] = life
+
+def addSpaceship(type, i, j, grid):
+    """adds a spaceship with top left cell at (i, j)"""
+    spaceship = np.array([])
+    if type == "glider":
+        spaceship = np.array([[0, 255, 0],
+                               [0, 0, 255],
+                               [255, 255, 255]])
+    if type == "lwspaceship":
+        spaceship = np.array([[255, 0, 0, 255, 0],
+                               [0, 0, 0, 0, 255],
+                               [255, 0, 0, 0, 255],
+                               [0, 255, 255, 255, 255]])
+    grid[i:i + len(spaceship), j:j + len(spaceship[0])] = spaceship
 
 def checkCell(r, c, grid):
     alive = 0
@@ -65,6 +83,7 @@ def update(frameNum, img, grid, N, ax):
     # update data
     ax.set_title("Frame = {0}".format(frameNum))
     img.set_data(newGrid)
+    img.set_cmap('binary')
     grid[:] = newGrid[:]
     return img,
 
@@ -86,7 +105,7 @@ def main():
     #N = 20
         
     # set animation update interval
-    updateInterval = 5000
+    updateInterval = 500
 
     # declare grid
     grid = np.array([])
@@ -95,9 +114,11 @@ def main():
     # Uncomment lines to see the "glider" demo
     grid = np.zeros(N*N).reshape(N, N)
     #addGlider(1, 1, grid)
-    addLightweightSpaceship(1, 1, grid)
+
+    addSpaceship("lwspaceship", 1, 1, grid)
 
     # set up animation
+
     fig, ax = plt.subplots()
     img = ax.imshow(grid, interpolation='nearest')
     ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, ),
