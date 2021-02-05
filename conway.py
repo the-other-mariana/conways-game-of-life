@@ -14,9 +14,7 @@ vals = [ON, OFF]
 
 BLOCK = [np.array([[255, 255],[255, 255]])]
 
-BEEHIVE = np.array([[0, 255, 255, 0],
-                  [255, 0, 0, 255],
-                  [0, 255, 255, 0]])
+BEEHIVE = [np.array([[0, 255, 255, 0],[255, 0, 0, 255],[0, 255, 255, 0]])]
 
 GLIDER = [np.array([[0, 255, 0], [0, 0, 255],[255, 255, 255]]),
           np.array([[255, 0, 255], [0, 255, 255], [0, 255, 0]]),
@@ -29,6 +27,8 @@ LWSPACESHIP = np.array([[255, 0, 0, 255, 0],
                        [0, 255, 255, 255, 255]])
 
 BEINGS = [BLOCK, GLIDER]
+
+
 
 def randomGrid(N):
     """returns a grid of NxN random values"""
@@ -71,7 +71,7 @@ def checkCell(r, c, grid):
                 alive += 1
     return alive
 
-def countLife(i, j, grid, g):
+def countLife(i, j, grid, visited):
     life_found = -1
     for b in range(len(BEINGS)):
 
@@ -93,6 +93,10 @@ def countLife(i, j, grid, g):
                     break
             if found:
                 life_found = idx
+                y = len(life)
+                x = len(life[0])
+                not_possible = np.ones(y * x).reshape(y, x)
+                visited[i: i + y, j: j + x] = not_possible
                 break
         if found:
             break
@@ -104,6 +108,7 @@ def update(frameNum, img, grid, N, ax):
     # copy grid since we require 8 neighbors for calculation
     # and we go line by line 
     newGrid = grid.copy()
+    visited = np.zeros(N * N).reshape(N, N)
     # TODO: Implement the rules of Conway's Game of Life
     reported = []
     possible_life = True
@@ -122,9 +127,11 @@ def update(frameNum, img, grid, N, ax):
                 newGrid[i][j] = 0
             if me != 255 and myNeighbours == 3: # reproduction
                 newGrid[i][j] = 255
-            res = countLife(i, j, grid, frameNum)
-            if res != -1:
-                reported.append(res)
+            #print(i, j, int(visited[i][j]))
+            if int(visited[i][j]) == 0:
+                res = countLife(i, j, grid, visited)
+                if res != -1:
+                    reported.append(res)
 
 
     print("---- Generation {0} ----".format(frameNum))
