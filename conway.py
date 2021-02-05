@@ -19,9 +19,7 @@ BEEHIVE = np.array([[0, 255, 255, 0],
                   [255, 0, 0, 255],
                   [0, 255, 255, 0]])
 
-GLIDER = np.array([[0, 255, 0],
-                   [0, 0, 255],
-                   [255, 255, 255]])
+GLIDER = np.array([[0, 255, 0], [0, 0, 255],[255, 255, 255]])
 
 LWSPACESHIP = np.array([[255, 0, 0, 255, 0],
                        [0, 0, 0, 0, 255],
@@ -72,7 +70,7 @@ def checkCell(r, c, grid):
     return alive
 
 def countLife(i, j, grid, g):
-    results = []
+    life_found = -1
     for b in range(len(BEINGS)):
         life = BEINGS[b]
         found = True
@@ -90,9 +88,9 @@ def countLife(i, j, grid, g):
             if not found:
                 break
         if found:
-            results.append(idx)
+            life_found = idx
             break
-    return results
+    return life_found
 
 
 
@@ -103,6 +101,9 @@ def update(frameNum, img, grid, N, ax):
     # TODO: Implement the rules of Conway's Game of Life
     reported = []
     possible_life = True
+    xleft = 0
+    yleft = 0
+    res = -1
     for i in range(N):
         for j in range(N):
             myNeighbours = checkCell(i, j, grid)
@@ -115,15 +116,15 @@ def update(frameNum, img, grid, N, ax):
                 newGrid[i][j] = 0
             if me != 255 and myNeighbours == 3: # reproduction
                 newGrid[i][j] = 255
-
             res = countLife(i, j, grid, frameNum)
-            if len(res) > 0:
+            if res != -1:
                 reported.append(res)
+
 
     print("---- Generation {0} ----".format(frameNum))
     print("Total Living Beings: {0}".format(len(reported)))
-    for r in range(len(reported)):
-        print("Found: life with index {0}".format(reported[r][0]))
+    for i in range(len(reported)):
+        print("Found: life with index {0}".format(reported[i]))
 
 
     # update data
