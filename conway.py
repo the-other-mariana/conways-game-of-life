@@ -100,7 +100,7 @@ def countLife(i, j, grid, visited):
                 break
         if found:
             break
-    return life_found
+    return life_found, visited
 
 
 
@@ -127,9 +127,8 @@ def update(frameNum, img, grid, N, ax):
                 newGrid[i][j] = 0
             if me != 255 and myNeighbours == 3: # reproduction
                 newGrid[i][j] = 255
-            #print(i, j, int(visited[i][j]))
             if int(visited[i][j]) == 0:
-                res = countLife(i, j, grid, visited)
+                res, visited = countLife(i, j, grid, visited)
                 if res != -1:
                     reported.append(res)
 
