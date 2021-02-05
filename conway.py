@@ -21,14 +21,14 @@ GLIDER = [np.array([[0, 255, 0], [0, 0, 255],[255, 255, 255]]),
           np.array([[0, 0, 255], [255, 0, 255],[0, 255, 255]]),
           np.array([[255, 0, 0], [0, 255, 255],[255, 255, 0]])]
 
-LWSPACESHIP = np.array([[255, 0, 0, 255, 0],
-                       [0, 0, 0, 0, 255],
-                       [255, 0, 0, 0, 255],
-                       [0, 255, 255, 255, 255]])
+LWSPACESHIP = [np.array([[255, 0, 0, 255, 0], [0, 0, 0, 0, 255], [255, 0, 0, 0, 255], [0, 255, 255, 255, 255]]),
+               np.array([[0, 0, 255, 255, 0], [255, 255, 0, 255, 255], [255, 255, 255, 255, 0], [0, 255, 255, 0, 0]]),
+               np.array([[0, 255, 255, 255, 255], [255, 0, 0, 0, 255], [0, 0, 0, 0, 255], [255, 0, 0, 255, 0]]),
+               np.array([[0, 255, 255, 0, 0], [255, 255, 255, 255, 0], [255, 255, 0, 255, 255], [0, 0, 255, 255, 0]])]
 
-BEINGS = [BLOCK, GLIDER]
+BEINGS = [BLOCK, GLIDER, LWSPACESHIP]
 
-
+BEINGS_STR = ["block", "glider", "light-weight spaceship"]
 
 def randomGrid(N):
     """returns a grid of NxN random values"""
@@ -56,7 +56,7 @@ def addSpaceship(type, i, j, grid):
     if type == "glider":
         spaceship = GLIDER[0]
     if type == "lwspaceship":
-        spaceship = LWSPACESHIP
+        spaceship = LWSPACESHIP[0]
     grid[i:i + len(spaceship), j:j + len(spaceship[0])] = spaceship
 
 def checkCell(r, c, grid):
@@ -108,12 +108,11 @@ def update(frameNum, img, grid, N, ax):
     # copy grid since we require 8 neighbors for calculation
     # and we go line by line 
     newGrid = grid.copy()
-    visited = np.zeros(N * N).reshape(N, N)
     # TODO: Implement the rules of Conway's Game of Life
+    visited = np.zeros(N * N).reshape(N, N)
+    counters = np.zeros(len(BEINGS))
     reported = []
     possible_life = True
-    xleft = 0
-    yleft = 0
     res = -1
     for i in range(N):
         for j in range(N):
@@ -131,12 +130,13 @@ def update(frameNum, img, grid, N, ax):
                 res, visited = countLife(i, j, grid, visited)
                 if res != -1:
                     reported.append(res)
+                    counters[int(res)] += 1
 
 
     print("---- Generation {0} ----".format(frameNum))
     print("Total Living Beings: {0}".format(len(reported)))
-    for i in range(len(reported)):
-        print("Found: life with index {0}".format(reported[i]))
+    for i in range(len(BEINGS)):
+        print("{n}: {v}".format(n=BEINGS_STR[i], v=int(counters[i])))
 
 
     # update data
@@ -175,7 +175,6 @@ def main():
     #addGlider(1, 1, grid)
 
     addSpaceship("glider", 1, 1, grid)
-
     # set up animation
 
     fig, ax = plt.subplots()
