@@ -18,13 +18,20 @@ def randomGrid(N):
 
 def addGlider(i, j, grid):
     """adds a glider with top left cell at (i, j)"""
-    glider = np.array([[0,    0, 255], 
-                       [255,  0, 255], 
-                       [0,  255, 255]])
+    glider = np.array([[0,    255, 0],
+                       [0,  0, 255],
+                       [255,  255, 255]])
     grid[i:i+3, j:j+3] = glider
 
+def addLightweightSpaceship(i, j, grid):
+    """adds a lw spaceship with top left cell at (i, j)"""
+    lwship = np.array([[255, 0, 0, 255, 0],
+                       [0, 0, 0, 0, 255],
+                       [255, 0, 0, 0, 255],
+                       [0, 255, 255, 255, 255]])
+    grid[i:i + len(lwship), j:j + len(lwship[0])] = lwship
+
 def checkCell(r, c, grid):
-    #alive = []
     alive = 0
     for i in range(r - 1, r + 2, 1):
         for j in range(c - 1, c + 2, 1):
@@ -33,7 +40,6 @@ def checkCell(r, c, grid):
             if i >= len(grid) or j >= len(grid) or i < 0 or j < 0:
                 continue
             if grid[i][j] != 0:
-                #alive.append(tuple([i, j]))
                 alive += 1
     return alive
 
@@ -69,12 +75,18 @@ def main():
     # parse arguments
     parser = argparse.ArgumentParser(description="Runs Conway's Game of Life system.py.")
     # TODO: add arguments
+    if len(sys.argv) < 2:
+        print("Please provide arguments for size and number of generations, both are numbers. Try again.")
+        return
+    elif len(sys.argv) > 1:
+        N = int(sys.argv[1])
+        G = int(sys.argv[2])
     
     # set grid size
-    N = 20
+    #N = 20
         
     # set animation update interval
-    updateInterval = 500
+    updateInterval = 5000
 
     # declare grid
     grid = np.array([])
@@ -82,13 +94,14 @@ def main():
     grid = randomGrid(N)
     # Uncomment lines to see the "glider" demo
     grid = np.zeros(N*N).reshape(N, N)
-    addGlider(int(N/2), int(N/2), grid)
+    #addGlider(1, 1, grid)
+    addLightweightSpaceship(1, 1, grid)
 
     # set up animation
     fig, ax = plt.subplots()
     img = ax.imshow(grid, interpolation='nearest')
     ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, ),
-                                  frames = 10,
+                                  frames = G,
                                   interval=updateInterval,
                                   save_count=50)
 
