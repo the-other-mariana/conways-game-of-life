@@ -8,6 +8,7 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt 
 import matplotlib.animation as animation
+import matplotlib.ticker as plticker
 
 ON = 255
 OFF = 0
@@ -178,12 +179,12 @@ def update(frameNum, img, grid, N, ax, G):
                     reported.append(res)
                     counters[int(res[0])] += 1
 
-    handleReport("++++ Generation {0} ++++\n".format(frameNum))
+    handleReport("----- Generation {0} -----\n".format(frameNum))
     handleReport("Total Living Beings: {0}\n".format(len(reported)))
-    handleReport("------------------------\n")
+    handleReport("+++++++++++++++++++++++++++\n")
     for i in range(len(BEINGS)):
         handleReport("{n}: {v}\n".format(n=BEINGS_STR[i], v=int(counters[i])))
-    handleReport("------------------------\n")
+    handleReport("+++++++++++++++++++++++++++\n")
     for j in range(len(reported)):
         handleReport("{i}. {n} at {y}, {x}\n".format(i=j,n=BEINGS_STR[reported[j][0]], y=reported[j][1], x=reported[j][2]))
 
@@ -247,6 +248,13 @@ def main():
     # set up animation
 
     fig, ax = plt.subplots()
+    ax.grid()
+
+    ax = plt.gca()
+    ax.set_xticks(np.arange(-.5, N - 1, 1))
+    ax.set_yticks(np.arange(-.51, N - 1, 1))
+    ax.set_xticklabels(np.arange(0, N, 1))
+    ax.set_yticklabels(np.arange(0, N, 1))
     img = ax.imshow(grid, interpolation='nearest')
     ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, G, ),
                                   frames = G,
