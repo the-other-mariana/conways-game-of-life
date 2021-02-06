@@ -16,7 +16,8 @@ OFF = 0
 vals = [ON, OFF]
 
 # STILL LIVES
-BLOCK = [np.array([[0, 0, 0, 0],[0, 255, 255, 0],[0, 255, 255, 0], [0, 0, 0, 0]])]
+#BLOCK = [np.array([[0, 0, 0, 0],[0, 255, 255, 0],[0, 255, 255, 0], [0, 0, 0, 0]])]
+BLOCK = [np.array([[255, 255],[255, 255]])]
 
 BEEHIVE = [np.array([[0, 255, 255, 0],[255, 0, 0, 255],[0, 255, 255, 0]])]
 
@@ -54,6 +55,9 @@ BEINGS_STR = ["block", "blinker", "toad", "beacon", "glider", "light-weight spac
 TOTAL_OPTIONS = []
 
 REPORT_STR = ""
+
+TOTAL_COUNTERS = np.zeros(len(BEINGS))
+TOTAL_LIVES = 0
 
 def randomGrid(N):
     """returns a grid of NxN random values"""
@@ -179,6 +183,11 @@ def update(frameNum, img, grid, N, ax, G):
                 if len(res) > 0:
                     reported.append(res)
                     counters[int(res[0])] += 1
+                    global TOTAL_COUNTERS
+                    TOTAL_COUNTERS[int(res[0])] += 1
+
+    global TOTAL_LIVES
+    TOTAL_LIVES += len(reported)
 
     handleReport("----- Generation {0} -----\n".format(frameNum))
     handleReport("Total Living Beings: {0}\n".format(len(reported)))
@@ -190,6 +199,9 @@ def update(frameNum, img, grid, N, ax, G):
         handleReport("{i}. {n} at {y}, {x}\n".format(i=j,n=BEINGS_STR[reported[j][0]], y=reported[j][1], x=reported[j][2]))
 
     if frameNum == (G - 1):
+        handleReport("+++++++ Incidence % +++++++\n")
+        for i in range(len(BEINGS)):
+            handleReport("{n}: {v} %\n".format(n=BEINGS_STR[i], v=round(TOTAL_COUNTERS[i] / TOTAL_LIVES, 2) * 100.0))
         handleReport("", True)
 
     # update data
@@ -244,7 +256,7 @@ def main():
         TOTAL_OPTIONS.append(temp)
 
     print("options", len(TOTAL_OPTIONS), "len beings", len(BEINGS))
-    #addSeed("beacon", 10, 10, grid)
+    addSeed("beacon", 10, 10, grid)
     addSeed("glider", 1, 1, grid)
     # set up animation
 

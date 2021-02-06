@@ -1,0 +1,3 @@
+python conway.py 7 16 glider 1 1
+python conway.py 20 37 glider 1 1 beacon 10 10
+
