@@ -31,12 +31,23 @@ BEINGS = [BLOCK, GLIDER, LWSPACESHIP]
 
 BEINGS_STR = ["block", "glider", "light-weight spaceship"]
 
+REPORT_STR = ""
+
 def randomGrid(N):
     """returns a grid of NxN random values"""
     return np.random.choice(vals, N*N, p=[0.2, 0.8]).reshape(N, N)
 
 def getTranspose(array):
     return np.transpose(array)
+
+def rotateArray(a):
+    y = len(a)
+    x = len(a[0])
+    r = np.zeros(y * x).reshape(y, x)
+    for i in range(len(a)):
+        for j in range(len(a)):
+            r[j][(len(a) - i) - 1] = a[i][j]
+    return r
 
 def addGlider(i, j, grid):
     """adds a glider with top left cell at (i, j)"""
@@ -106,7 +117,7 @@ def countLife(i, j, grid, visited):
             break
     return life_found, visited
 
-REPORT_STR = ""
+
 
 def handleReport(str, finished=False):
     global REPORT_STR
@@ -188,6 +199,9 @@ def main():
     # Uncomment lines to see the "glider" demo
     grid = np.zeros(N*N).reshape(N, N)
     #addGlider(1, 1, grid)
+    glider = GLIDER[0]
+    for i in range(3):
+        glider = rotateArray(glider)
 
     addSpaceship("lwspaceship", 1, 1, grid)
     # set up animation
