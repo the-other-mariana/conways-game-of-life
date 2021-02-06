@@ -1,20 +1,433 @@
----- Generation 0 ----
-Total Living Beings: 1
+++++ Generation 0 ++++
+Total Living Beings: 2
+------------------------
 block: 0
-glider: 0
-light-weight spaceship: 1
----- Generation 0 ----
-Total Living Beings: 1
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 1, 1
+1. beacon at 10, 10
+++++ Generation 0 ++++
+Total Living Beings: 2
+------------------------
 block: 0
-glider: 0
-light-weight spaceship: 1
----- Generation 1 ----
-Total Living Beings: 1
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 2, 1
+1. beacon at 10, 10
+++++ Generation 1 ++++
+Total Living Beings: 2
+------------------------
 block: 0
-glider: 0
-light-weight spaceship: 1
----- Generation 2 ----
-Total Living Beings: 1
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 2, 1
+1. beacon at 10, 10
+++++ Generation 2 ++++
+Total Living Beings: 2
+------------------------
 block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 2, 2
+1. beacon at 10, 10
+++++ Generation 3 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 2, 2
+1. beacon at 10, 10
+++++ Generation 4 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 3, 2
+1. beacon at 10, 10
+++++ Generation 5 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 3, 2
+1. beacon at 10, 10
+++++ Generation 6 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 3, 3
+1. beacon at 10, 10
+++++ Generation 7 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 3, 3
+1. beacon at 10, 10
+++++ Generation 8 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 4, 3
+1. beacon at 10, 10
+++++ Generation 9 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 4, 3
+1. beacon at 10, 10
+++++ Generation 10 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 4, 4
+1. beacon at 10, 10
+++++ Generation 11 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 4, 4
+1. beacon at 10, 10
+++++ Generation 12 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 5, 4
+1. beacon at 10, 10
+++++ Generation 13 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 5, 4
+1. beacon at 10, 10
+++++ Generation 14 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 5, 5
+1. beacon at 10, 10
+++++ Generation 15 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 5, 5
+1. beacon at 10, 10
+++++ Generation 16 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 6, 5
+1. beacon at 10, 10
+++++ Generation 17 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 6, 5
+1. beacon at 10, 10
+++++ Generation 18 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 6, 6
+1. beacon at 10, 10
+++++ Generation 19 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 6, 6
+1. beacon at 10, 10
+++++ Generation 20 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 7, 6
+1. beacon at 10, 10
+++++ Generation 21 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
+glider: 1
+light-weight spaceship: 0
+------------------------
+0. glider at 7, 6
+1. beacon at 10, 10
+++++ Generation 22 ++++
+Total Living Beings: 1
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 1
 glider: 0
-light-weight spaceship: 1
+light-weight spaceship: 0
+------------------------
+0. beacon at 10, 10
+++++ Generation 23 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 24 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 25 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 26 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 27 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 28 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 29 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 30 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 31 ++++
+Total Living Beings: 1
+------------------------
+block: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+0. blinker at 10, 8
+++++ Generation 32 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 33 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+0. blinker at 7, 10
+1. blinker at 10, 7
+++++ Generation 34 ++++
+Total Living Beings: 0
+------------------------
+block: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+++++ Generation 35 ++++
+Total Living Beings: 1
+------------------------
+block: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+0. blinker at 6, 10
+++++ Generation 36 ++++
+Total Living Beings: 2
+------------------------
+block: 0
+blinker: 1
+toad: 1
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+------------------------
+0. toad at 7, 9
+1. blinker at 12, 10

@@ -13,10 +13,28 @@ ON = 255
 OFF = 0
 vals = [ON, OFF]
 
-BLOCK = [np.array([[255, 255],[255, 255]])]
+# STILL LIVES
+BLOCK = [np.array([[0, 0, 0, 0],[0, 255, 255, 0],[0, 255, 255, 0], [0, 0, 0, 0]])]
 
 BEEHIVE = [np.array([[0, 255, 255, 0],[255, 0, 0, 255],[0, 255, 255, 0]])]
 
+LOAF = [np.array([[0, 255, 255, 0],[255, 0, 0, 255],[0, 255, 0, 255], [0, 0, 255, 0]])]
+
+BOAT = [np.array([[255, 255, 0],[255, 0, 255],[0, 255, 0]])]
+
+TUB = [np.array([[0, 255, 0],[255, 0, 255],[0, 255, 0]])]
+
+# OSCILATORS
+BLINKER = [np.array([[0, 255, 0],[0, 255, 0],[0, 255, 0]]),
+           np.array([[0, 0, 0],[255, 255, 255],[0, 0, 0]])]
+
+TOAD = [np.array([[0, 0, 255, 0],[255, 0, 0, 255],[255, 0, 0, 255], [0, 255, 0, 0]]),
+        np.array([[0, 255, 255, 255],[255, 255, 255, 0]])]
+
+BEACON = [np.array([[255, 255, 0, 0],[255, 255, 0, 0],[0, 0, 255, 255], [0, 0, 255, 255]]),
+          np.array([[255, 255, 0, 0],[255, 0, 0, 0],[0, 0, 0, 255], [0, 0, 255, 255]])]
+
+# SPACESHIPS
 GLIDER = [np.array([[0, 255, 0], [0, 0, 255],[255, 255, 255]]),
           np.array([[255, 0, 255], [0, 255, 255], [0, 255, 0]]),
           np.array([[0, 0, 255], [255, 0, 255],[0, 255, 255]]),
@@ -27,9 +45,11 @@ LWSPACESHIP = [np.array([[255, 0, 0, 255, 0], [0, 0, 0, 0, 255], [255, 0, 0, 0, 
                np.array([[0, 255, 255, 255, 255], [255, 0, 0, 0, 255], [0, 0, 0, 0, 255], [255, 0, 0, 255, 0]]),
                np.array([[0, 255, 255, 0, 0], [255, 255, 255, 255, 0], [255, 255, 0, 255, 255], [0, 0, 255, 255, 0]])]
 
-BEINGS = [BLOCK, GLIDER, LWSPACESHIP]
+BEINGS = [BLOCK, BLINKER, TOAD, BEACON, GLIDER, LWSPACESHIP]
 
-BEINGS_STR = ["block", "glider", "light-weight spaceship"]
+BEINGS_STR = ["block", "blinker", "toad", "beacon", "glider", "light-weight spaceship"]
+
+TOTAL_OPTIONS = []
 
 REPORT_STR = ""
 
@@ -56,23 +76,23 @@ def addGlider(i, j, grid):
                        [255,  255, 255]])
     grid[i:i + len(glider), j:j + len(glider[0])] = glider
 
-def addStillLives(type, i, j, grid):
+def addSeed(type, i, j, grid):
     life = np.array([])
     if type == "block":
         life = BLOCK[0]
     if type == "beehive":
         life = BEEHIVE[0]
-
-    grid[i:i + len(life), j:j + len(life[0])] = life
-
-def addSpaceship(type, i, j, grid):
-    """adds a spaceship with top left cell at (i, j)"""
-    spaceship = np.array([])
+    if type == "blinker":
+        life = BLINKER[0]
+    if type == "toad":
+        life = TOAD[0]
+    if type == "beacon":
+        life = BEACON[0]
     if type == "glider":
-        spaceship = GLIDER[0]
+        life = GLIDER[0]
     if type == "lwspaceship":
-        spaceship = LWSPACESHIP[0]
-    grid[i:i + len(spaceship), j:j + len(spaceship[0])] = spaceship
+        life = LWSPACESHIP[0]
+    grid[i:i + len(life), j:j + len(life[0])] = life
 
 def checkNeighbours(r, c, grid):
     alive = 0
@@ -88,11 +108,11 @@ def checkNeighbours(r, c, grid):
 
 def countLife(i, j, grid, visited):
     life_found = -1
-    for b in range(len(BEINGS)):
-
+    life_found = []
+    for b in range(len(TOTAL_OPTIONS)):
         idx = b
-        for o in range(len(BEINGS[b])):
-            life = BEINGS[b][o]
+        for o in range(len(TOTAL_OPTIONS[b])):
+            life = TOTAL_OPTIONS[b][o]
             found = True
             for r in range(len(life)):
                 for c in range(len(life[0])):
@@ -107,7 +127,8 @@ def countLife(i, j, grid, visited):
                 if not found:
                     break
             if found:
-                life_found = idx
+                #life_found = idx
+                life_found = [idx, i, j]
                 y = len(life)
                 x = len(life[0])
                 not_possible = np.ones(y * x).reshape(y, x)
@@ -152,14 +173,19 @@ def update(frameNum, img, grid, N, ax, G):
                 newGrid[i][j] = 255
             if int(visited[i][j]) == 0:
                 res, visited = countLife(i, j, grid, visited)
-                if res != -1:
+                #if res != -1:
+                if len(res) > 0:
                     reported.append(res)
-                    counters[int(res)] += 1
+                    counters[int(res[0])] += 1
 
-    handleReport("---- Generation {0} ----\n".format(frameNum))
+    handleReport("++++ Generation {0} ++++\n".format(frameNum))
     handleReport("Total Living Beings: {0}\n".format(len(reported)))
+    handleReport("------------------------\n")
     for i in range(len(BEINGS)):
         handleReport("{n}: {v}\n".format(n=BEINGS_STR[i], v=int(counters[i])))
+    handleReport("------------------------\n")
+    for j in range(len(reported)):
+        handleReport("{i}. {n} at {y}, {x}\n".format(i=j,n=BEINGS_STR[reported[j][0]], y=reported[j][1], x=reported[j][2]))
 
     if frameNum == (G - 1):
         handleReport("", True)
@@ -199,11 +225,25 @@ def main():
     # Uncomment lines to see the "glider" demo
     grid = np.zeros(N*N).reshape(N, N)
     #addGlider(1, 1, grid)
-    glider = GLIDER[0]
-    for i in range(3):
-        glider = rotateArray(glider)
+    global TOTAL_OPTIONS
+    for b in range(len(BEINGS)):
+        temp = []
+        for o in range(len(BEINGS[b])):
+            temp.append(BEINGS[b][o])
+            '''
+            for t in range(4):
+                if t < 3:
+                    rot = rotateArray(BEINGS[b][o])
+                    temp.append(rot)
+                if t == 3:
+                    trans = getTranspose(BEINGS[b][o])
+                    temp.append(trans)
+            '''
+        TOTAL_OPTIONS.append(temp)
 
-    addSpaceship("lwspaceship", 1, 1, grid)
+    print("options", len(TOTAL_OPTIONS), "len beings", len(BEINGS))
+    addSeed("beacon", 10, 10, grid)
+    addSeed("glider", 1, 1, grid)
     # set up animation
 
     fig, ax = plt.subplots()
