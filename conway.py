@@ -9,6 +9,7 @@ import math
 import matplotlib.pyplot as plt 
 import matplotlib.animation as animation
 import matplotlib.ticker as plticker
+import time
 
 ON = 255
 OFF = 0
@@ -119,7 +120,7 @@ def countLife(i, j, grid, visited):
                 for c in range(len(life[0])):
                     if (i + r) >= len(grid) or (j + c) >= len(grid[0]):
                         found = False
-                        continue
+                        break
                     current = int(grid[i + r][j + c])
                     pattern = int(life[r][c])
                     if current != pattern:
@@ -152,7 +153,7 @@ def handleReport(str, finished=False):
 
 def update(frameNum, img, grid, N, ax, G):
     # copy grid since we require 8 neighbors for calculation
-    # and we go line by line 
+    # and we go line by line
     newGrid = grid.copy()
     # TODO: Implement the rules of Conway's Game of Life
     visited = np.zeros(N * N).reshape(N, N)
@@ -231,7 +232,7 @@ def main():
         temp = []
         for o in range(len(BEINGS[b])):
             temp.append(BEINGS[b][o])
-            '''
+
             for t in range(4):
                 if t < 3:
                     rot = rotateArray(BEINGS[b][o])
@@ -239,11 +240,11 @@ def main():
                 if t == 3:
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
-            '''
+
         TOTAL_OPTIONS.append(temp)
 
     print("options", len(TOTAL_OPTIONS), "len beings", len(BEINGS))
-    addSeed("beacon", 10, 10, grid)
+    #addSeed("beacon", 10, 10, grid)
     addSeed("glider", 1, 1, grid)
     # set up animation
 
