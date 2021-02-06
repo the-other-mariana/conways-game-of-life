@@ -31,21 +31,12 @@ BEINGS = [BLOCK, GLIDER, LWSPACESHIP]
 
 BEINGS_STR = ["block", "glider", "light-weight spaceship"]
 
-REPORT_STR = ""
-
 def randomGrid(N):
     """returns a grid of NxN random values"""
     return np.random.choice(vals, N*N, p=[0.2, 0.8]).reshape(N, N)
 
-def rotate_pt3D(pt, angle_deg):
-    rads = angle_deg * (3.1416 / 180.0)
-    rotMatrixZ = [[math.cos(rads), -1*math.sin(rads), 0], [math.sin(rads), math.cos(rads), 0], [0, 0, 1]]
-    r_pt = [0, 0, 0]
-    for r in range(3):
-        r_pt[r] = 0;
-        for c in range(3):
-            r_pt[r] += rotMatrixZ[r][c] * pt[c]
-    return [r_pt[0], r_pt[1]]
+def getTranspose(array):
+    return np.transpose(array)
 
 def addGlider(i, j, grid):
     """adds a glider with top left cell at (i, j)"""
@@ -57,9 +48,9 @@ def addGlider(i, j, grid):
 def addStillLives(type, i, j, grid):
     life = np.array([])
     if type == "block":
-        life = BLOCK
+        life = BLOCK[0]
     if type == "beehive":
-        life = BEEHIVE
+        life = BEEHIVE[0]
 
     grid[i:i + len(life), j:j + len(life[0])] = life
 
@@ -72,7 +63,7 @@ def addSpaceship(type, i, j, grid):
         spaceship = LWSPACESHIP[0]
     grid[i:i + len(spaceship), j:j + len(spaceship[0])] = spaceship
 
-def checkCell(r, c, grid):
+def checkNeighbours(r, c, grid):
     alive = 0
     for i in range(r - 1, r + 2, 1):
         for j in range(c - 1, c + 2, 1):
@@ -115,9 +106,18 @@ def countLife(i, j, grid, visited):
             break
     return life_found, visited
 
+REPORT_STR = ""
 
+def handleReport(str, finished=False):
+    global REPORT_STR
+    if finished:
+        text_file = open("report.txt", "w")
+        n = text_file.write(REPORT_STR)
+        text_file.close()
+    else:
+        REPORT_STR += str
 
-def update(frameNum, img, grid, N, ax):
+def update(frameNum, img, grid, N, ax, G):
     # copy grid since we require 8 neighbors for calculation
     # and we go line by line 
     newGrid = grid.copy()
@@ -129,7 +129,7 @@ def update(frameNum, img, grid, N, ax):
     res = -1
     for i in range(N):
         for j in range(N):
-            myNeighbours = checkCell(i, j, grid)
+            myNeighbours = checkNeighbours(i, j, grid)
             me = int(grid[i][j])
             if me != 0 and myNeighbours < 2: # underpopulation
                 newGrid[i][j] = 0
@@ -145,12 +145,13 @@ def update(frameNum, img, grid, N, ax):
                     reported.append(res)
                     counters[int(res)] += 1
 
-
-    print("---- Generation {0} ----".format(frameNum))
-    print("Total Living Beings: {0}".format(len(reported)))
+    handleReport("---- Generation {0} ----\n".format(frameNum))
+    handleReport("Total Living Beings: {0}\n".format(len(reported)))
     for i in range(len(BEINGS)):
-        print("{n}: {v}".format(n=BEINGS_STR[i], v=int(counters[i])))
+        handleReport("{n}: {v}\n".format(n=BEINGS_STR[i], v=int(counters[i])))
 
+    if frameNum == (G - 1):
+        handleReport("", True)
 
     # update data
     ax.set_title("Generation = {0}".format(frameNum))
@@ -175,6 +176,7 @@ def main():
     
     # set grid size
     #N = 20
+
         
     # set animation update interval
     updateInterval = 1000
@@ -192,12 +194,13 @@ def main():
 
     fig, ax = plt.subplots()
     img = ax.imshow(grid, interpolation='nearest')
-    ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, ),
+    ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, G, ),
                                   frames = G,
                                   interval=updateInterval,
-                                  save_count=50)
+                                  save_count=50, repeat=False)
 
     plt.show()
+
 
 # call main
 if __name__ == '__main__':

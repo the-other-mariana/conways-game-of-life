@@ -1,0 +1,20 @@
+---- Generation 0 ----
+Total Living Beings: 1
+block: 0
+glider: 0
+light-weight spaceship: 1
+---- Generation 0 ----
+Total Living Beings: 1
+block: 0
+glider: 0
+light-weight spaceship: 1
+---- Generation 1 ----
+Total Living Beings: 1
+block: 0
+glider: 0
+light-weight spaceship: 1
+---- Generation 2 ----
+Total Living Beings: 1
+block: 0
+glider: 0
+light-weight spaceship: 1
