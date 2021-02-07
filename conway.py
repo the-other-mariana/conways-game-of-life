@@ -246,12 +246,12 @@ def main():
         for o in range(len(BEINGS[b])):
             temp.append(BEINGS[b][o])
             rot = BEINGS[b][o]
-            for t in range(4):
-                if t < 3:
+            for t in range(5):
+                if t < 4:
                     rot = rotateArray(rot)
                     temp.append(rot)
                     print(t, rot)
-                if t == 3:
+                if t == 4:
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
 
