@@ -46,9 +46,9 @@ LWSPACESHIP = [np.array([[255, 0, 0, 255, 0], [0, 0, 0, 0, 255], [255, 0, 0, 0, 
                np.array([[0, 255, 255, 255, 255], [255, 0, 0, 0, 255], [0, 0, 0, 0, 255], [255, 0, 0, 255, 0]]),
                np.array([[0, 255, 255, 0, 0], [255, 255, 255, 255, 0], [255, 255, 0, 255, 255], [0, 0, 255, 255, 0]])]
 
-BEINGS = [BLOCK, BEEHIVE, LOAF, BOAT, TUB, BLINKER, TOAD, BEACON, GLIDER, LWSPACESHIP]
+BEINGS = [BEEHIVE, LOAF, BOAT, TUB, BLINKER, TOAD, BEACON, GLIDER, LWSPACESHIP, BLOCK]
 
-BEINGS_STR = ["block", "beehive", "loaf", "boat", "tub", "blinker", "toad", "beacon", "glider", "light-weight spaceship"]
+BEINGS_STR = ["beehive", "loaf", "boat", "tub", "blinker", "toad", "beacon", "glider", "light-weight spaceship", "block"]
 
 TOTAL_OPTIONS = []
 
@@ -103,13 +103,18 @@ def checkNeighbours(r, c, grid):
                 alive += 1
     return alive
 
-def countLife(i, j, grid, visited):
-    life_found = -1
+def countLife(i, j, grid, visited, onlyBeacon=False):
     life_found = []
-    for b in range(len(TOTAL_OPTIONS)):
+
+    global TOTAL_OPTIONS
+    toSearch = TOTAL_OPTIONS
+    if onlyBeacon:
+        toSearch = [BEACON]
+
+    for b in range(len(toSearch)):
         idx = b
-        for o in range(len(TOTAL_OPTIONS[b])):
-            life = TOTAL_OPTIONS[b][o]
+        for o in range(len(toSearch[b])):
+            life = toSearch[b][o]
             found = True
             for r in range(len(life)):
                 for c in range(len(life[0])):
@@ -124,7 +129,6 @@ def countLife(i, j, grid, visited):
                 if not found:
                     break
             if found:
-                #life_found = idx
                 life_found = [idx, i, j]
                 y = len(life)
                 x = len(life[0])
@@ -184,8 +188,11 @@ def update(frameNum, img, grid, N, ax, G):
 
     for i in range(N):
         for j in range(N):
+            onlyBeacon = False
             myNeighbours = checkNeighbours(i, j, grid)
             me = int(grid[i][j])
+            if myNeighbours == 0:
+                onlyBeacon = True
             if me != 0 and myNeighbours < 2: # underpopulation
                 newGrid[i][j] = 0
             if me != 0 and (myNeighbours == 2 or myNeighbours == 3): # next generation
@@ -195,7 +202,7 @@ def update(frameNum, img, grid, N, ax, G):
             if me != 255 and myNeighbours == 3: # reproduction
                 newGrid[i][j] = 255
             if int(visited[i][j]) == 0:
-                res, visited = countLife(i, j, grid, visited)
+                res, visited = countLife(i, j, grid, visited, onlyBeacon)
                 if len(res) > 0:
                     reported.append(res)
                     counters[int(res[0])] += 1
@@ -247,18 +254,23 @@ def main():
         
     # set animation update interval
     updateInterval = 10
+    if N < 50:
+        updateInterval = 500
+
 
     # declare grid
     grid = np.array([])
     grid = np.zeros(N*N).reshape(N, N)
     # populate grid
-    grid = initConfig(grid, f)
+    #grid = initConfig(grid, f)
+    addSeed("glider", 1, 1, grid)
+    addSeed("beacon", 10, 10, grid)
 
     # generate all possible options of the different lives rotated and transposed for report
     global TOTAL_OPTIONS
     for b in range(len(BEINGS)):
         temp = []
-        #print(BEINGS_STR[b])
+        print(BEINGS_STR[b])
         for o in range(len(BEINGS[b])):
             temp.append(BEINGS[b][o])
             rot = BEINGS[b][o]
@@ -266,7 +278,7 @@ def main():
                 if t < 4:
                     rot = rotateArray(rot)
                     temp.append(rot)
-                    #print(t, rot)
+                    print(t, rot)
                 if t == 4:
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
