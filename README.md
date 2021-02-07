@@ -5,7 +5,6 @@ This is a simulation coded in Python of the cellular automaton model created by 
 ![image](https://github.com/the-other-mariana/conways-game-of-life/blob/master/extras/test-1-gif.gif)
 
 ## Specifications
-----
 
 Language: `Python 3.8.1`
 
@@ -17,7 +16,6 @@ The simulation always takes as input file the [config.dat](https://github.com/th
 After running the simulation, the program writes an output file called [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt), which contains all the Life beings detected during **each** generation by their category, and the percentage of appearance throughout the sim.
 
 ## Usage
-----
 
 ### Get Started
 
