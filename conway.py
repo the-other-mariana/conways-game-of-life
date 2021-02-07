@@ -17,7 +17,7 @@ vals = [ON, OFF]
 
 # STILL LIVES
 #BLOCK = [np.array([[0, 0, 0, 0],[0, 255, 255, 0],[0, 255, 255, 0], [0, 0, 0, 0]])]
-BLOCK = [np.array([[255, 255],[255, 255]])]
+BLOCK = [np.array([[0, 0, 0], [0, 255, 255], [0, 255, 255]])]
 
 BEEHIVE = [np.array([[0, 255, 255, 0],[255, 0, 0, 255],[0, 255, 255, 0]])]
 
@@ -196,12 +196,12 @@ def update(frameNum, img, grid, N, ax, G):
         handleReport("{n}: {v}\n".format(n=BEINGS_STR[i], v=int(counters[i])))
     handleReport("+++++++++++++++++++++++++++\n")
     for j in range(len(reported)):
-        handleReport("{i}. {n} at {y}, {x}\n".format(i=j,n=BEINGS_STR[reported[j][0]], y=reported[j][1], x=reported[j][2]))
+        handleReport("{i}. {n} at {y}, {x}\n".format(i=j + 1, n=BEINGS_STR[reported[j][0]], y=reported[j][1], x=reported[j][2]))
 
     if frameNum == (G - 1):
         handleReport("+++++++ Incidence % +++++++\n")
         for i in range(len(BEINGS)):
-            handleReport("{n}: {v} %\n".format(n=BEINGS_STR[i], v=round(TOTAL_COUNTERS[i] / TOTAL_LIVES, 2) * 100.0))
+            handleReport("{n}: {v} %\n".format(n=BEINGS_STR[i], v=round((TOTAL_COUNTERS[i] / TOTAL_LIVES) * 100.0, 2) ))
         handleReport("", True)
 
     # update data
@@ -242,21 +242,24 @@ def main():
     global TOTAL_OPTIONS
     for b in range(len(BEINGS)):
         temp = []
+        print(BEINGS_STR[b])
         for o in range(len(BEINGS[b])):
             temp.append(BEINGS[b][o])
-
+            rot = BEINGS[b][o]
             for t in range(4):
                 if t < 3:
-                    rot = rotateArray(BEINGS[b][o])
+                    rot = rotateArray(rot)
                     temp.append(rot)
+                    print(t, rot)
                 if t == 3:
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
 
+
         TOTAL_OPTIONS.append(temp)
 
     print("options", len(TOTAL_OPTIONS), "len beings", len(BEINGS))
-    addSeed("beacon", 10, 10, grid)
+    #addSeed("beacon", 10, 10, grid)
     addSeed("glider", 1, 1, grid)
     # set up animation
 
