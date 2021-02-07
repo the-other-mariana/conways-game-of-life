@@ -160,8 +160,8 @@ def handleReport(str, finished=False):
     else:
         REPORT_STR += str
 
-def initConfig(grid):
-    file1 = open('config.dat', 'r')
+def initConfig(grid, f):
+    file1 = open(f, 'r')
     flines = file1.readlines()
     for line in flines:
         coord = line.split(',')
@@ -236,11 +236,14 @@ def main():
     parser = argparse.ArgumentParser(description="Runs Conway's Game of Life system.py.")
     # TODO: add arguments
     if len(sys.argv) < 2:
-        print("Please provide arguments by typing: python conway.py <size_number> <number_of_generations>")
+        print("Please provide arguments by typing: python conway.py <size_number> <number_of_generations> <init_file>")
         return
-    elif len(sys.argv) > 1:
+    elif len(sys.argv) > 1 and len(sys.argv) < 5:
         N = int(sys.argv[1])
         G = int(sys.argv[2])
+        f = str(sys.argv[3])
+    else:
+        print("Please provide correct arguments. Check the RAEDME file for running instructions.")
         
     # set animation update interval
     updateInterval = 1000
@@ -250,8 +253,9 @@ def main():
     # Uncomment lines to see the "glider" demo
     grid = np.zeros(N*N).reshape(N, N)
     # populate grid
-    grid = initConfig(grid)
+    grid = initConfig(grid, f)
 
+    # generate all possible options of the different lives rotated and transposed for report
     global TOTAL_OPTIONS
     for b in range(len(BEINGS)):
         temp = []
@@ -271,12 +275,12 @@ def main():
 
         TOTAL_OPTIONS.append(temp)
 
-    #addSeed("beacon", 10, 10, grid)
-    #addSeed("glider", 1, 1, grid)
     # set up animation
     fig, ax = plt.subplots()
+
     # add grid labels and ticks depending on size
     prettifyLife(fig, ax, N)
+
     img = ax.imshow(grid, interpolation='nearest')
     ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, G, ),
                                   frames = G,

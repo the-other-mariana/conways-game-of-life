@@ -28,7 +28,7 @@ $: pip install matplotlib
 ```
 4. In order to run the simulation as it is, now type:
 ```bash
-$: python conway.py 60 200
+$: python conway.py 60 200 config.dat
 ```
 This will make a Conway Simulation with grid size 60x60 and run 200 generations, with the initial configuration defined in the file [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat), which is the same folder as the [conway.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/conway.py) script.
 
@@ -36,9 +36,9 @@ This will make a Conway Simulation with grid size 60x60 and run 200 generations,
 
 ### General Runs
 ```bash
-$: python conway.py <size_number> <number_of_generations>
+$: python conway.py <size_number> <number_of_generations> <init_file>
 ```
-With `<size_number>` and `<number_of_generations>` as integer number parameters . <br />
+With `<size_number>` and `<number_of_generations>` as integer number parameters, and <init_file> as the file name of the initial configuration input file. <br />
 
 
 
