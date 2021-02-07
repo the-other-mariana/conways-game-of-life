@@ -51,6 +51,7 @@ BEINGS = [BEEHIVE, LOAF, BOAT, TUB, BLINKER, TOAD, BEACON, GLIDER, LWSPACESHIP, 
 BEINGS_STR = ["beehive", "loaf", "boat", "tub", "blinker", "toad", "beacon", "glider", "light-weight spaceship", "block"]
 
 TOTAL_OPTIONS = []
+RARE_CASES = []
 
 REPORT_STR = ""
 
@@ -107,9 +108,10 @@ def countLife(i, j, grid, visited, rareCase=False):
     life_found = []
 
     global TOTAL_OPTIONS
+    global RARE_CASES
     toSearch = TOTAL_OPTIONS
     if rareCase:
-        toSearch = [BEACON, LWSPACESHIP]
+        toSearch = RARE_CASES
 
     for b in range(len(toSearch)):
         idx = b
@@ -283,6 +285,25 @@ def main():
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
         TOTAL_OPTIONS.append(temp)
+
+    global RARE_CASES
+    for b in range(len(TOTAL_OPTIONS)):
+
+        for o in range(len(TOTAL_OPTIONS[b])):
+            isRareCase = True
+            for r in range(2):
+                for c in range(2):
+                    if r == 0 and c == 0:
+                        continue
+                    current = int(TOTAL_OPTIONS[b][o][r][c])
+                    if current != 0:
+                        isRareCase = False
+                        break
+                if not isRareCase:
+                    break
+            if isRareCase:
+                RARE_CASES.append(TOTAL_OPTIONS[b])
+                break
 
     # set up animation
     fig, ax = plt.subplots()

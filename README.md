@@ -28,9 +28,9 @@ $: pip install matplotlib
 ```
 4. In order to run the simulation as it is, now type:
 ```bash
-$: python conway.py 60 200 config.dat
+$: python conway.py 80 200 config.dat
 ```
-This will make a Conway Simulation with grid size 60x60 and run 200 generations, with the initial configuration defined in the file [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat), which is the same folder as the [conway.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/conway.py) script.
+This will make a Conway Simulation with grid size 80x80 and run 200 generations, with the initial configuration defined in the file [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat), which is the same folder as the [conway.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/conway.py) script.
 
 5. At the end of the simulation, you will see the text file [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt) with all the reported Life beings that were tracked throughout every moment in time during the simulation, as well as their percentage of appearance.
 
