@@ -144,6 +144,20 @@ def countLife(i, j, grid, visited):
             break
     return life_found, visited
 
+def prettifyLife(fig, ax, N):
+    if N < 50:
+        ax.grid()
+        ax = plt.gca()
+        ax.set_xticks(np.arange(-.5, N - 1, 1))
+        ax.set_yticks(np.arange(-.51, N - 1, 1))
+        ax.set_xticklabels(np.arange(0, N, 1))
+        ax.set_yticklabels(np.arange(0, N, 1))
+    elif N > 50 and N <= 100:
+        ax.grid()
+        ax = plt.gca()
+        labels = [" " for x in range(N)]
+        plt.xticks(np.arange(-.5, N - 1, 1), labels)
+        plt.yticks(np.arange(-.51, N - 1, 1), labels)
 
 
 def handleReport(str, finished=False):
@@ -154,6 +168,18 @@ def handleReport(str, finished=False):
         text_file.close()
     else:
         REPORT_STR += str
+
+def initConfig(grid):
+    file1 = open('config.dat', 'r')
+    flines = file1.readlines()
+    for line in flines:
+        coord = line.split(',')
+        x = int(coord[0])
+        y = int(coord[1])
+        if x < 0 or x >= len(grid[0]) or y < 0 or y >= len(grid):
+            continue
+        grid[y][x] = 255
+    return grid
 
 def update(frameNum, img, grid, N, ax, G):
     # copy grid since we require 8 neighbors for calculation
@@ -238,6 +264,8 @@ def main():
     grid = randomGrid(N)
     # Uncomment lines to see the "glider" demo
     grid = np.zeros(N*N).reshape(N, N)
+    # populate grid
+    grid = initConfig(grid)
     #addGlider(1, 1, grid)
     global TOTAL_OPTIONS
     for b in range(len(BEINGS)):
@@ -250,7 +278,6 @@ def main():
                 if t < 4:
                     rot = rotateArray(rot)
                     temp.append(rot)
-                    print(t, rot)
                 if t == 4:
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
@@ -260,17 +287,13 @@ def main():
 
     print("options", len(TOTAL_OPTIONS), "len beings", len(BEINGS))
     #addSeed("beacon", 10, 10, grid)
-    addSeed("glider", 1, 1, grid)
+    #addSeed("glider", 1, 1, grid)
     # set up animation
 
     fig, ax = plt.subplots()
-    ax.grid()
 
-    ax = plt.gca()
-    ax.set_xticks(np.arange(-.5, N - 1, 1))
-    ax.set_yticks(np.arange(-.51, N - 1, 1))
-    ax.set_xticklabels(np.arange(0, N, 1))
-    ax.set_yticklabels(np.arange(0, N, 1))
+    prettifyLife(fig, ax, N)
+
     img = ax.imshow(grid, interpolation='nearest')
     ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, G, ),
                                   frames = G,
