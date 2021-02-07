@@ -32,8 +32,8 @@ BLINKER = [np.array([[0, 255, 0],[0, 255, 0],[0, 255, 0]]),
 TOAD = [np.array([[0, 0, 255, 0],[255, 0, 0, 255],[255, 0, 0, 255], [0, 255, 0, 0]]),
         np.array([[0, 255, 255, 255],[255, 255, 255, 0]])]
 
-BEACON = [np.array([[255, 255, 0, 0],[255, 255, 0, 0],[0, 0, 255, 255], [0, 0, 255, 255]]),
-          np.array([[255, 255, 0, 0],[255, 0, 0, 0],[0, 0, 0, 255], [0, 0, 255, 255]])]
+BEACON = [np.array([[0, 0, 0, 0, 0, 0],[0, 255, 255, 0, 0, 0],[0, 255, 255, 0, 0, 0],[0, 0, 0, 255, 255, 0], [0, 0, 0, 255, 255, 0], [0, 0, 0, 0, 0, 0]]),
+          np.array([[0, 0, 0, 0, 0, 0],[0, 255, 255, 0, 0, 0],[0, 255, 0, 0, 0, 0],[0, 0, 0, 0, 255, 0], [0, 0, 0, 255, 255, 0], [0, 0, 0, 0, 0, 0]])]
 
 # SPACESHIPS
 GLIDER = [np.array([[0, 255, 0], [0, 0, 255],[255, 255, 255]]),
@@ -103,13 +103,13 @@ def checkNeighbours(r, c, grid):
                 alive += 1
     return alive
 
-def countLife(i, j, grid, visited, onlyBeacon=False):
+def countLife(i, j, grid, visited, rareCase=False):
     life_found = []
 
     global TOTAL_OPTIONS
     toSearch = TOTAL_OPTIONS
-    if onlyBeacon:
-        toSearch = [BEACON]
+    if rareCase:
+        toSearch = [BEACON, LWSPACESHIP]
 
     for b in range(len(toSearch)):
         idx = b
@@ -188,11 +188,11 @@ def update(frameNum, img, grid, N, ax, G):
 
     for i in range(N):
         for j in range(N):
-            onlyBeacon = False
+            rareCase = False
             myNeighbours = checkNeighbours(i, j, grid)
             me = int(grid[i][j])
             if myNeighbours == 0:
-                onlyBeacon = True
+                rareCase = True
             if me != 0 and myNeighbours < 2: # underpopulation
                 newGrid[i][j] = 0
             if me != 0 and (myNeighbours == 2 or myNeighbours == 3): # next generation
@@ -202,7 +202,7 @@ def update(frameNum, img, grid, N, ax, G):
             if me != 255 and myNeighbours == 3: # reproduction
                 newGrid[i][j] = 255
             if int(visited[i][j]) == 0:
-                res, visited = countLife(i, j, grid, visited, onlyBeacon)
+                res, visited = countLife(i, j, grid, visited, rareCase)
                 if len(res) > 0:
                     reported.append(res)
                     counters[int(res[0])] += 1
@@ -270,7 +270,7 @@ def main():
     global TOTAL_OPTIONS
     for b in range(len(BEINGS)):
         temp = []
-        print(BEINGS_STR[b])
+        #print(BEINGS_STR[b])
         for o in range(len(BEINGS[b])):
             temp.append(BEINGS[b][o])
             rot = BEINGS[b][o]
@@ -278,7 +278,7 @@ def main():
                 if t < 4:
                     rot = rotateArray(rot)
                     temp.append(rot)
-                    print(t, rot)
+                    #print(t, rot)
                 if t == 4:
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
