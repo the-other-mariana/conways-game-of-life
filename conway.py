@@ -48,9 +48,9 @@ LWSPACESHIP = [np.array([[255, 0, 0, 255, 0], [0, 0, 0, 0, 255], [255, 0, 0, 0, 
                np.array([[0, 255, 255, 255, 255], [255, 0, 0, 0, 255], [0, 0, 0, 0, 255], [255, 0, 0, 255, 0]]),
                np.array([[0, 255, 255, 0, 0], [255, 255, 255, 255, 0], [255, 255, 0, 255, 255], [0, 0, 255, 255, 0]])]
 
-BEINGS = [BLOCK, BLINKER, TOAD, BEACON, GLIDER, LWSPACESHIP]
+BEINGS = [BLOCK, BEEHIVE, LOAF, BOAT, TUB, BLINKER, TOAD, BEACON, GLIDER, LWSPACESHIP]
 
-BEINGS_STR = ["block", "blinker", "toad", "beacon", "glider", "light-weight spaceship"]
+BEINGS_STR = ["block", "beehive", "loaf", "boat", "tub", "blinker", "toad", "beacon", "glider", "light-weight spaceship"]
 
 TOTAL_OPTIONS = []
 
@@ -69,18 +69,11 @@ def getTranspose(array):
 def rotateArray(a):
     y = len(a)
     x = len(a[0])
-    r = np.zeros(y * x).reshape(y, x)
-    for i in range(len(a)):
-        for j in range(len(a)):
-            r[j][(len(a) - i) - 1] = a[i][j]
+    r = np.zeros(x * y).reshape(x, y)
+    for i in range(y):
+        for j in range(x):
+            r[j][(y - i) - 1] = a[i][j]
     return r
-
-def addGlider(i, j, grid):
-    """adds a glider with top left cell at (i, j)"""
-    glider = np.array([[0,    255, 0],
-                       [0,  0, 255],
-                       [255,  255, 255]])
-    grid[i:i + len(glider), j:j + len(glider[0])] = glider
 
 def addSeed(type, i, j, grid):
     life = np.array([])
@@ -189,8 +182,7 @@ def update(frameNum, img, grid, N, ax, G):
     visited = np.zeros(N * N).reshape(N, N)
     counters = np.zeros(len(BEINGS))
     reported = []
-    possible_life = True
-    res = -1
+
     for i in range(N):
         for j in range(N):
             myNeighbours = checkNeighbours(i, j, grid)
@@ -250,23 +242,17 @@ def main():
     elif len(sys.argv) > 1:
         N = int(sys.argv[1])
         G = int(sys.argv[2])
-    
-    # set grid size
-    #N = 20
-
         
     # set animation update interval
     updateInterval = 1000
 
     # declare grid
     grid = np.array([])
-    # populate grid with random on/off - more off than on
-    grid = randomGrid(N)
     # Uncomment lines to see the "glider" demo
     grid = np.zeros(N*N).reshape(N, N)
     # populate grid
     grid = initConfig(grid)
-    #addGlider(1, 1, grid)
+
     global TOTAL_OPTIONS
     for b in range(len(BEINGS)):
         temp = []
@@ -278,6 +264,7 @@ def main():
                 if t < 4:
                     rot = rotateArray(rot)
                     temp.append(rot)
+                    print(t, rot)
                 if t == 4:
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
@@ -285,15 +272,12 @@ def main():
 
         TOTAL_OPTIONS.append(temp)
 
-    print("options", len(TOTAL_OPTIONS), "len beings", len(BEINGS))
     #addSeed("beacon", 10, 10, grid)
     #addSeed("glider", 1, 1, grid)
     # set up animation
-
     fig, ax = plt.subplots()
-
+    # add grid labels and ticks depending on size
     prettifyLife(fig, ax, N)
-
     img = ax.imshow(grid, interpolation='nearest')
     ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, G, ),
                                   frames = G,
