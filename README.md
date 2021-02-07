@@ -1,6 +1,6 @@
 # Conway's Game of Life
 
-This is a simulation coded in Python of the cellular automaton model created by Conway. <br />
+This is a simulation coded in Python of the cellular automaton model created by John H Conway. <br />
 
 ![image](https://github.com/the-other-mariana/conways-game-of-life/blob/master/extras/test-1-gif.gif)
 
@@ -38,7 +38,11 @@ This will make a Conway Simulation with grid size 60x60 and run 200 generations,
 ```bash
 $: python conway.py <size_number> <number_of_generations> <init_file>
 ```
-With `<size_number>` and `<number_of_generations>` as integer number parameters, and <init_file> as the file name of the initial configuration input file. <br />
+With `<size_number>` and `<number_of_generations>` as integer number parameters, and `<init_file>` as the file name of the initial configuration input file. <br />
+
+## Handy Links
+
+[Initial Configuration Example](https://towardsdatascience.com/from-scratch-the-game-of-life-161430453ee3)
 
 
 

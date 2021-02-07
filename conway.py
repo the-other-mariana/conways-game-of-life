@@ -196,7 +196,6 @@ def update(frameNum, img, grid, N, ax, G):
                 newGrid[i][j] = 255
             if int(visited[i][j]) == 0:
                 res, visited = countLife(i, j, grid, visited)
-                #if res != -1:
                 if len(res) > 0:
                     reported.append(res)
                     counters[int(res[0])] += 1
@@ -243,14 +242,14 @@ def main():
         G = int(sys.argv[2])
         f = str(sys.argv[3])
     else:
-        print("Please provide correct arguments. Check the RAEDME file for running instructions.")
+        print("Please provide correct arguments. Check the README file for running instructions.")
+        return
         
     # set animation update interval
-    updateInterval = 1000
+    updateInterval = 10
 
     # declare grid
     grid = np.array([])
-    # Uncomment lines to see the "glider" demo
     grid = np.zeros(N*N).reshape(N, N)
     # populate grid
     grid = initConfig(grid, f)
@@ -271,8 +270,6 @@ def main():
                 if t == 4:
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
-
-
         TOTAL_OPTIONS.append(temp)
 
     # set up animation
