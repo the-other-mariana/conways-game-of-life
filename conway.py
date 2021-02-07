@@ -5,10 +5,8 @@ A simple Python/matplotlib implementation of Conway's Game of Life.
 
 import sys, argparse
 import numpy as np
-import math
 import matplotlib.pyplot as plt 
 import matplotlib.animation as animation
-import matplotlib.ticker as plticker
 import time
 
 ON = 255
@@ -170,6 +168,7 @@ def initConfig(grid):
         x = int(coord[0])
         y = int(coord[1])
         if x < 0 or x >= len(grid[0]) or y < 0 or y >= len(grid):
+            print("Warning: input file contains coordinates outside your defined universe.")
             continue
         grid[y][x] = 255
     return grid
@@ -256,7 +255,7 @@ def main():
     global TOTAL_OPTIONS
     for b in range(len(BEINGS)):
         temp = []
-        print(BEINGS_STR[b])
+        #print(BEINGS_STR[b])
         for o in range(len(BEINGS[b])):
             temp.append(BEINGS[b][o])
             rot = BEINGS[b][o]
@@ -264,7 +263,7 @@ def main():
                 if t < 4:
                     rot = rotateArray(rot)
                     temp.append(rot)
-                    print(t, rot)
+                    #print(t, rot)
                 if t == 4:
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
