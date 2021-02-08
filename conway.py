@@ -142,14 +142,14 @@ def countLife(i, j, grid, visited, rareCase=False):
     return life_found, visited
 
 def prettifyLife(fig, ax, N):
-    if N < 50:
+    if N <= 50:
         ax.grid()
         ax = plt.gca()
         ax.set_xticks(np.arange(-.5, N - 1, 1))
         ax.set_yticks(np.arange(-.51, N - 1, 1))
         ax.set_xticklabels(np.arange(0, N, 1))
         ax.set_yticklabels(np.arange(0, N, 1))
-    elif N > 50 and N <= 100:
+    elif N > 50 and N < 80:
         ax.grid()
         ax = plt.gca()
         labels = [" " for x in range(N)]
@@ -259,14 +259,13 @@ def main():
     if N < 50:
         updateInterval = 500
 
-
     # declare grid
     grid = np.array([])
     grid = np.zeros(N*N).reshape(N, N)
     # populate grid
-    #grid = initConfig(grid, f)
-    addSeed("glider", 1, 1, grid)
-    addSeed("beacon", 10, 10, grid)
+    grid = initConfig(grid, f)
+    #addSeed("glider", 1, 1, grid)
+    #addSeed("beacon", 10, 10, grid)
 
     # generate all possible options of the different lives rotated and transposed for report
     global TOTAL_OPTIONS
@@ -278,14 +277,17 @@ def main():
             rot = BEINGS[b][o]
             for t in range(5):
                 if t < 4:
+                    # all possible rotations
                     rot = rotateArray(rot)
                     temp.append(rot)
                     #print(t, rot)
                 if t == 4:
+                    # the transpose
                     trans = getTranspose(BEINGS[b][o])
                     temp.append(trans)
         TOTAL_OPTIONS.append(temp)
 
+    # whenever a cell has no neighbours, the cell can only be part of beings in RARE_CASES
     global RARE_CASES
     for b in range(len(TOTAL_OPTIONS)):
 
