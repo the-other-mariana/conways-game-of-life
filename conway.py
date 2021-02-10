@@ -241,18 +241,24 @@ def main():
     # Command line args are in sys.argv[1], sys.argv[2] ..
     # sys.argv[0] is the script name itself and can be ignored
     # parse arguments
-    parser = argparse.ArgumentParser(description="Runs Conway's Game of Life system.py.")
+    parser = argparse.ArgumentParser(description="Runs Conway's Game of Life implementation from Mariana Avalos (the-other-mariana).")
     # TODO: add arguments
+    parser.add_argument('-s', '--size', type=int, required=True, help="[INTEGER] Determines the N size of an NxN universe.")
+    parser.add_argument('-g', '--gen', type=int, required=True, help="[INTEGER] Determines the number of generations")
+    parser.add_argument('-i', '--input', type=str, default='config.dat', help="[STRING] Determines the initial config file. Defaults to config.dat file.")
+    args = parser.parse_args()
+
     if len(sys.argv) < 2:
-        print("Please provide arguments by typing: python conway.py <size_number> <number_of_generations> <init_file>")
+        print("Please provide arguments by typing: python conway.py -s <size_number> -g <number_of_generations> -i <init_file>")
         return
-    elif len(sys.argv) > 1 and len(sys.argv) < 5:
-        N = int(sys.argv[1])
-        G = int(sys.argv[2])
-        f = str(sys.argv[3])
+    elif args.size and args.gen and args.input:
+        N = int(args.size)
+        G = int(args.gen)
+        f = str(args.input)
     else:
         print("Please provide correct arguments. Check the README file for running instructions.")
         return
+
         
     # set animation update interval
     updateInterval = 10
