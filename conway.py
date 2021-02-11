@@ -58,8 +58,7 @@ REPORT_STR = ""
 
 TOTAL_COUNTERS = np.zeros(len(BEINGS))
 TOTAL_LIVES = 0
-
-visited = []
+TOTAL_OTHERS = 0
 
 def randomGrid(N):
     """returns a grid of NxN random values"""
@@ -122,10 +121,9 @@ def enqueueNeighbours(grid, r, c, q):
     return q
 
 
-def countLife(i, j, grid, rareCase=False):
+def countLife(i, j, grid, visited, rareCase=False):
     life_found = []
 
-    global visited
     global TOTAL_OPTIONS
     global RARE_CASES
     toSearch = TOTAL_OPTIONS
@@ -158,7 +156,7 @@ def countLife(i, j, grid, rareCase=False):
                 break
         if found:
             break
-    return life_found
+    return life_found, visited
 
 def prettifyLife(fig, ax, N):
     if N <= 50:
@@ -198,8 +196,7 @@ def initConfig(grid, f):
         grid[y][x] = 255
     return grid
 
-def countOthers(grid):
-    global visited
+def countOthers(grid, visited):
     q = Queue()
     num = 0
     for i in range(len(grid)):
@@ -214,7 +211,7 @@ def countOthers(grid):
                         visited[item[0]][item[1]] = 1
                         q = enqueueNeighbours(grid, item[0], item[1], q)
                 num += 1
-    return num
+    return num, visited
 
 
 def update(frameNum, img, grid, N, ax, G):
@@ -222,7 +219,6 @@ def update(frameNum, img, grid, N, ax, G):
     # and we go line by line
     newGrid = grid.copy()
     # TODO: Implement the rules of Conway's Game of Life
-    global visited
     visited = np.zeros(N * N).reshape(N, N)
     counters = np.zeros(len(BEINGS))
     reported = []
@@ -243,21 +239,23 @@ def update(frameNum, img, grid, N, ax, G):
             if me != 255 and myNeighbours == 3: # reproduction
                 newGrid[i][j] = 255
             if int(visited[i][j]) == 0:
-                res = countLife(i, j, grid, rareCase)
+                res, visited = countLife(i, j, grid, visited, rareCase)
                 if len(res) > 0:
                     reported.append(res)
                     counters[int(res[0])] += 1
                     global TOTAL_COUNTERS
                     TOTAL_COUNTERS[int(res[0])] += 1
 
-    num = countOthers(grid)
+    num, visited = countOthers(grid, visited)
+    global TOTAL_OTHERS
+    TOTAL_OTHERS += num
 
     global TOTAL_LIVES
     TOTAL_LIVES += len(reported)
 
     handleReport("----- Generation {0} -----\n".format(frameNum))
-    handleReport("Total Living Beings: {0}\n".format(len(reported)))
-    handleReport("Total Others: {0}\n".format(num))
+    handleReport("Total Life Beings: {0}\n".format(len(reported)))
+    handleReport("Total Other Beings: {0}\n".format(num))
     handleReport("+++++++++++++++++++++++++++\n")
     for i in range(len(BEINGS)):
         handleReport("{n}: {v}\n".format(n=BEINGS_STR[i], v=int(counters[i])))
@@ -270,7 +268,8 @@ def update(frameNum, img, grid, N, ax, G):
         if TOTAL_LIVES == 0:
             TOTAL_LIVES = 1
         for i in range(len(BEINGS)):
-            handleReport("{n}: {v} %\n".format(n=BEINGS_STR[i], v=round((TOTAL_COUNTERS[i] / TOTAL_LIVES) * 100.0, 2) ))
+            handleReport("{n}: {v} %\n".format(n=BEINGS_STR[i], v=round((TOTAL_COUNTERS[i] / (TOTAL_LIVES + TOTAL_OTHERS)) * 100.0, 2) ))
+        handleReport("{n}: {v} %\n".format(n="others", v=round((TOTAL_OTHERS / (TOTAL_LIVES + TOTAL_OTHERS)) * 100.0, 2) ))
         handleReport("", True)
 
     # update data
@@ -314,7 +313,7 @@ def main():
     grid = np.zeros(N*N).reshape(N, N)
     # populate grid
     grid = initConfig(grid, f)
-    #addSeed("glider", 1, 1, grid)
+    addSeed("glider", 13, 7, grid)
     #addSeed("beacon", 10, 10, grid)
 
     # generate all possible options of the different lives rotated and transposed for report
