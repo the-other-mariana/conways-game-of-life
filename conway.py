@@ -7,6 +7,7 @@ import sys, argparse
 import numpy as np
 import matplotlib.pyplot as plt 
 import matplotlib.animation as animation
+from queue import Queue
 import time
 
 ON = 255
@@ -58,6 +59,8 @@ REPORT_STR = ""
 TOTAL_COUNTERS = np.zeros(len(BEINGS))
 TOTAL_LIVES = 0
 
+visited = []
+
 def randomGrid(N):
     """returns a grid of NxN random values"""
     return np.random.choice(vals, N*N, p=[0.2, 0.8]).reshape(N, N)
@@ -104,9 +107,25 @@ def checkNeighbours(r, c, grid):
                 alive += 1
     return alive
 
-def countLife(i, j, grid, visited, rareCase=False):
+def enqueueNeighbours(grid, r, c, q):
+    coord = [0, 0]
+    for i in range(r - 1, r + 2, 1):
+        for j in range(c - 1, c + 2, 1):
+            if i == r and j == c:
+                continue
+            if i >= len(grid) or j >= len(grid) or i < 0 or j < 0:
+                continue
+            if int(grid[i][j]) != 0:
+                coord[0] = i
+                coord[1] = j
+                q.put(coord)
+    return q
+
+
+def countLife(i, j, grid, rareCase=False):
     life_found = []
 
+    global visited
     global TOTAL_OPTIONS
     global RARE_CASES
     toSearch = TOTAL_OPTIONS
@@ -139,7 +158,7 @@ def countLife(i, j, grid, visited, rareCase=False):
                 break
         if found:
             break
-    return life_found, visited
+    return life_found
 
 def prettifyLife(fig, ax, N):
     if N <= 50:
@@ -179,11 +198,31 @@ def initConfig(grid, f):
         grid[y][x] = 255
     return grid
 
+def countOthers(grid):
+    global visited
+    q = Queue()
+    num = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            s = int(grid[i][j])
+            if s == 255 and visited[i][j] == 0:
+                visited[i][j] = 1
+                q = enqueueNeighbours(grid, i, j, q)
+                while not q.empty():
+                    item = q.get()
+                    if visited[item[0]][item[1]] == 0 and grid[item[0]][item[1]] == 255:
+                        visited[item[0]][item[1]] = 1
+                        q = enqueueNeighbours(grid, item[0], item[1], q)
+                num += 1
+    return num
+
+
 def update(frameNum, img, grid, N, ax, G):
     # copy grid since we require 8 neighbors for calculation
     # and we go line by line
     newGrid = grid.copy()
     # TODO: Implement the rules of Conway's Game of Life
+    global visited
     visited = np.zeros(N * N).reshape(N, N)
     counters = np.zeros(len(BEINGS))
     reported = []
@@ -204,18 +243,21 @@ def update(frameNum, img, grid, N, ax, G):
             if me != 255 and myNeighbours == 3: # reproduction
                 newGrid[i][j] = 255
             if int(visited[i][j]) == 0:
-                res, visited = countLife(i, j, grid, visited, rareCase)
+                res = countLife(i, j, grid, rareCase)
                 if len(res) > 0:
                     reported.append(res)
                     counters[int(res[0])] += 1
                     global TOTAL_COUNTERS
                     TOTAL_COUNTERS[int(res[0])] += 1
 
+    num = countOthers(grid)
+
     global TOTAL_LIVES
     TOTAL_LIVES += len(reported)
 
     handleReport("----- Generation {0} -----\n".format(frameNum))
     handleReport("Total Living Beings: {0}\n".format(len(reported)))
+    handleReport("Total Others: {0}\n".format(num))
     handleReport("+++++++++++++++++++++++++++\n")
     for i in range(len(BEINGS)):
         handleReport("{n}: {v}\n".format(n=BEINGS_STR[i], v=int(counters[i])))
@@ -225,6 +267,8 @@ def update(frameNum, img, grid, N, ax, G):
 
     if frameNum == (G - 1):
         handleReport("+++++++ Incidence % +++++++\n")
+        if TOTAL_LIVES == 0:
+            TOTAL_LIVES = 1
         for i in range(len(BEINGS)):
             handleReport("{n}: {v} %\n".format(n=BEINGS_STR[i], v=round((TOTAL_COUNTERS[i] / TOTAL_LIVES) * 100.0, 2) ))
         handleReport("", True)
