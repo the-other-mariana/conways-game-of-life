@@ -313,7 +313,7 @@ def main():
     grid = np.zeros(N*N).reshape(N, N)
     # populate grid
     grid = initConfig(grid, f)
-    addSeed("glider", 13, 7, grid)
+    #addSeed("glider", 13, 7, grid)
     #addSeed("beacon", 10, 10, grid)
 
     # generate all possible options of the different lives rotated and transposed for report
