@@ -5,14 +5,12 @@ A simple Python/matplotlib implementation of Conway's Game of Life.
 
 import sys, argparse
 import numpy as np
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from queue import Queue
-import time
+import matplotlib.image as mltimg
+import matplotlib.axes._subplots as mltax
 
-ON = 255
-OFF = 0
-vals = [ON, OFF]
+from queue import Queue
 
 # STILL LIVES
 #BLOCK = [np.array([[0, 0, 0, 0],[0, 255, 255, 0],[0, 255, 255, 0], [0, 0, 0, 0]])]
@@ -53,21 +51,17 @@ BEINGS_STR = ["beehive", "loaf", "boat", "tub", "blinker", "toad", "beacon", "gl
 
 TOTAL_OPTIONS = []
 RARE_CASES = []
-
 REPORT_STR = ""
-
 TOTAL_COUNTERS = np.zeros(len(BEINGS))
 TOTAL_LIVES = 0
 TOTAL_OTHERS = 0
 
-def randomGrid(N):
-    """returns a grid of NxN random values"""
-    return np.random.choice(vals, N*N, p=[0.2, 0.8]).reshape(N, N)
-
-def getTranspose(array):
+# gets the transposed matrix of a given matrix
+def getTranspose(array: np.ndarray) -> np.ndarray:
     return np.transpose(array)
 
-def rotateArray(a):
+# rotates a given matrix by 90 degrees, clockwise
+def rotateArray(a: np.ndarray) -> np.ndarray:
     y = len(a)
     x = len(a[0])
     r = np.zeros(x * y).reshape(x, y)
@@ -76,7 +70,8 @@ def rotateArray(a):
             r[j][(y - i) - 1] = a[i][j]
     return r
 
-def addSeed(type, i, j, grid):
+# adds a predefined seed to grid in i,j cell
+def addSeed(type: str, i: int, j: int, grid: np.ndarray) -> None:
     life = np.array([])
     if type == "block":
         life = BLOCK[0]
@@ -94,7 +89,8 @@ def addSeed(type, i, j, grid):
         life = LWSPACESHIP[0]
     grid[i:i + len(life), j:j + len(life[0])] = life
 
-def checkNeighbours(r, c, grid):
+# counts the neighbours of a given r,c cell
+def checkNeighbours(r: int, c: int, grid: np.ndarray) -> int:
     alive = 0
     for i in range(r - 1, r + 2, 1):
         for j in range(c - 1, c + 2, 1):
@@ -106,7 +102,8 @@ def checkNeighbours(r, c, grid):
                 alive += 1
     return alive
 
-def enqueueNeighbours(grid, r, c, q):
+# add neighbours to queue to region counting purposes
+def enqueueNeighbours(grid: np.ndarray, r: int, c: int, q: Queue) -> Queue:
     coord = [0, 0]
     for i in range(r - 1, r + 2, 1):
         for j in range(c - 1, c + 2, 1):
@@ -120,8 +117,8 @@ def enqueueNeighbours(grid, r, c, q):
                 q.put(coord)
     return q
 
-
-def countLife(i, j, grid, visited, rareCase=False):
+# counts Life beings and sets them to visited in a visited matrix
+def countLife(i: int, j: int, grid: np.ndarray, visited: np.ndarray, rareCase: bool = False):
     life_found = []
 
     global TOTAL_OPTIONS
@@ -158,7 +155,8 @@ def countLife(i, j, grid, visited, rareCase=False):
             break
     return life_found, visited
 
-def prettifyLife(fig, ax, N):
+# adds axes ticks and labels according to size
+def prettifyLife(ax: mltax.Axes, N: int) -> None:
     if N <= 50:
         ax.grid()
         ax = plt.gca()
@@ -173,17 +171,18 @@ def prettifyLife(fig, ax, N):
         plt.xticks(np.arange(-.5, N - 1, 1), labels)
         plt.yticks(np.arange(-.51, N - 1, 1), labels)
 
-
-def handleReport(str, finished=False):
+# concatenates report information in output file
+def handleReport(str_val: str, finished: bool = False) -> None:
     global REPORT_STR
     if finished:
         text_file = open("report.txt", "w")
         n = text_file.write(REPORT_STR)
         text_file.close()
     else:
-        REPORT_STR += str
+        REPORT_STR += str_val
 
-def initConfig(grid, f):
+# initializes grid according to given filename
+def initConfig(grid: np.ndarray, f: str) -> np.ndarray:
     file1 = open(f, 'r')
     flines = file1.readlines()
     for line in flines:
@@ -196,7 +195,8 @@ def initConfig(grid, f):
         grid[y][x] = 255
     return grid
 
-def countOthers(grid, visited):
+# count every alive set of cells as other
+def countOthers(grid: np.ndarray, visited: np.ndarray):
     q = Queue()
     num = 0
     for i in range(len(grid)):
@@ -213,12 +213,50 @@ def countOthers(grid, visited):
                 num += 1
     return num, visited
 
+# generate all possible options of the different lives rotated and transposed for report
+def generateGeneralCases() -> None:
+    global TOTAL_OPTIONS
+    for b in range(len(BEINGS)):
+        temp = []
+        for o in range(len(BEINGS[b])):
+            temp.append(BEINGS[b][o])
+            rot = BEINGS[b][o]
+            for t in range(5):
+                if t < 4:
+                    # all possible rotations
+                    rot = rotateArray(rot)
+                    temp.append(rot)
+                if t == 4:
+                    # the transpose
+                    trans = getTranspose(BEINGS[b][o])
+                    temp.append(trans)
+        TOTAL_OPTIONS.append(temp)
 
-def update(frameNum, img, grid, N, ax, G):
-    # copy grid since we require 8 neighbors for calculation
-    # and we go line by line
+# whenever a cell has no neighbours, the cell can only be part of beings in RARE_CASES
+def generateRareCases() -> None:
+    global RARE_CASES
+    for b in range(len(TOTAL_OPTIONS)):
+
+        for o in range(len(TOTAL_OPTIONS[b])):
+            isRareCase = True
+            for r in range(2):
+                for c in range(2):
+                    if r == 0 and c == 0:
+                        continue
+                    current = int(TOTAL_OPTIONS[b][o][r][c])
+                    if current != 0:
+                        isRareCase = False
+                        break
+                if not isRareCase:
+                    break
+            if isRareCase:
+                RARE_CASES.append(TOTAL_OPTIONS[b])
+                break
+
+
+def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: mltax.Axes, G: int):
+
     newGrid = grid.copy()
-    # TODO: Implement the rules of Conway's Game of Life
     visited = np.zeros(N * N).reshape(N, N)
     counters = np.zeros(len(BEINGS))
     reported = []
@@ -265,12 +303,13 @@ def update(frameNum, img, grid, N, ax, G):
 
     if frameNum == (G - 1):
         handleReport("+++++++ Incidence % +++++++\n")
-        if TOTAL_LIVES == 0:
-            TOTAL_LIVES = 1
+        if TOTAL_LIVES == 0 and TOTAL_OTHERS == 0:
+            TOTAL_LIVES = 1 # to avoid div by zero
         for i in range(len(BEINGS)):
             handleReport("{n}: {v} %\n".format(n=BEINGS_STR[i], v=round((TOTAL_COUNTERS[i] / (TOTAL_LIVES + TOTAL_OTHERS)) * 100.0, 2) ))
         handleReport("{n}: {v} %\n".format(n="others", v=round((TOTAL_OTHERS / (TOTAL_LIVES + TOTAL_OTHERS)) * 100.0, 2) ))
         handleReport("", True)
+        print(TOTAL_OTHERS, len(reported))
 
     # update data
     ax.set_title("Generation = {0}".format(frameNum))
@@ -280,28 +319,26 @@ def update(frameNum, img, grid, N, ax, G):
     return img,
 
 # main() function
-def main():
-    # Command line args are in sys.argv[1], sys.argv[2] ..
-    # sys.argv[0] is the script name itself and can be ignored
+def main() -> None:
+
     # parse arguments
     parser = argparse.ArgumentParser(description="Runs Conway's Game of Life implementation from Mariana Avalos (the-other-mariana).")
-    # TODO: add arguments
     parser.add_argument('-s', '--size', type=int, required=True, help="[INTEGER] Determines the N size of an NxN universe.")
     parser.add_argument('-g', '--gen', type=int, required=True, help="[INTEGER] Determines the number of generations")
     parser.add_argument('-i', '--input', type=str, default='config.dat', help="[STRING] Determines the initial config file. Defaults to config.dat file.")
     args = parser.parse_args()
 
+    # validation of args
     if len(sys.argv) < 2:
         print("Please provide arguments by typing: python conway.py -s <size_number> -g <number_of_generations> -i <init_file>")
         return
-    elif args.size and args.gen and args.input:
+    elif bool(args.size) and bool(args.gen) and bool(args.input):
         N = int(args.size)
         G = int(args.gen)
         f = str(args.input)
     else:
         print("Please provide correct arguments. Check the README file for running instructions.")
         return
-
         
     # set animation update interval
     updateInterval = 10
@@ -311,63 +348,27 @@ def main():
     # declare grid
     grid = np.array([])
     grid = np.zeros(N*N).reshape(N, N)
+
     # populate grid
     grid = initConfig(grid, f)
-    #addSeed("glider", 13, 7, grid)
+    #addSeed("glider", 14, 1, grid)
     #addSeed("beacon", 10, 10, grid)
 
-    # generate all possible options of the different lives rotated and transposed for report
-    global TOTAL_OPTIONS
-    for b in range(len(BEINGS)):
-        temp = []
-        #print(BEINGS_STR[b])
-        for o in range(len(BEINGS[b])):
-            temp.append(BEINGS[b][o])
-            rot = BEINGS[b][o]
-            for t in range(5):
-                if t < 4:
-                    # all possible rotations
-                    rot = rotateArray(rot)
-                    temp.append(rot)
-                    #print(t, rot)
-                if t == 4:
-                    # the transpose
-                    trans = getTranspose(BEINGS[b][o])
-                    temp.append(trans)
-        TOTAL_OPTIONS.append(temp)
-
-    # whenever a cell has no neighbours, the cell can only be part of beings in RARE_CASES
-    global RARE_CASES
-    for b in range(len(TOTAL_OPTIONS)):
-
-        for o in range(len(TOTAL_OPTIONS[b])):
-            isRareCase = True
-            for r in range(2):
-                for c in range(2):
-                    if r == 0 and c == 0:
-                        continue
-                    current = int(TOTAL_OPTIONS[b][o][r][c])
-                    if current != 0:
-                        isRareCase = False
-                        break
-                if not isRareCase:
-                    break
-            if isRareCase:
-                RARE_CASES.append(TOTAL_OPTIONS[b])
-                break
+    # generate all possible patterns to check in report
+    generateGeneralCases()
+    generateRareCases()
 
     # set up animation
     fig, ax = plt.subplots()
 
     # add grid labels and ticks depending on size
-    prettifyLife(fig, ax, N)
+    prettifyLife(ax, N)
 
     img = ax.imshow(grid, interpolation='nearest')
     ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, G, ),
                                   frames = G,
                                   interval=updateInterval,
                                   save_count=50, repeat=False)
-
     plt.show()
 
 
