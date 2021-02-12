@@ -261,6 +261,9 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
     counters = np.zeros(len(BEINGS))
     reported = []
 
+    if frameNum == 1:
+        print("SUCCESS Simulation begins.")
+
     for i in range(N):
         for j in range(N):
             rareCase = False
@@ -352,6 +355,7 @@ def main() -> None:
 
     # populate grid
     grid = initConfig(grid, f)
+    addSeed("beehive", 8, 8, grid)
     #addSeed("glider", 14, 1, grid)
     #addSeed("beacon", 10, 10, grid)
 

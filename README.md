@@ -40,6 +40,16 @@ $: python conway.py -s <size_number> -g <number_of_generations> -i <init_file>
 ```
 With `<size_number>` and `<number_of_generations>` as integer number parameters, and `<init_file>` as the file name of the initial configuration input file. <br />
 
+## Special Features
+
+This simulation reports at **every generation** how many Life seed patterns are found by its category, and also other entities are counted as 'Others'. At the end of the simulation, a resport with such informations can be found.<br />
+
+Seeds are defined following Conway's standards, but the program also generates all their possible rotations and transposed positions, so that the report identifies rotated seeds as well. <br />
+
+For example, the following configuration will be identified by the program as two beehives, even though one is rotated.<br />
+
+![image](https://github.com/the-other-mariana/conways-game-of-life/blob/master/extras/rot-test.png?raw=true) <br />
+
 ## Handy Links
 
 [Initial Configuration Example](https://towardsdatascience.com/from-scratch-the-game-of-life-161430453ee3)

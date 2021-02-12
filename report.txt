@@ -1,8 +1,8 @@
 ----- Generation 0 -----
-Total Life Beings: 0
-Total Other Beings: 2
+Total Life Beings: 2
+Total Other Beings: 0
 +++++++++++++++++++++++++++
-beehive: 0
+beehive: 2
 loaf: 0
 boat: 0
 tub: 0
@@ -13,11 +13,13 @@ glider: 0
 light-weight spaceship: 0
 block: 0
 +++++++++++++++++++++++++++
+1. beehive at 2, 3
+2. beehive at 8, 8
 ----- Generation 0 -----
-Total Life Beings: 0
-Total Other Beings: 2
+Total Life Beings: 2
+Total Other Beings: 0
 +++++++++++++++++++++++++++
-beehive: 0
+beehive: 2
 loaf: 0
 boat: 0
 tub: 0
@@ -28,47 +30,51 @@ glider: 0
 light-weight spaceship: 0
 block: 0
 +++++++++++++++++++++++++++
+1. beehive at 2, 3
+2. beehive at 8, 8
 ----- Generation 1 -----
-Total Life Beings: 1
+Total Life Beings: 2
 Total Other Beings: 0
 +++++++++++++++++++++++++++
-beehive: 0
+beehive: 2
 loaf: 0
 boat: 0
 tub: 0
-blinker: 1
+blinker: 0
 toad: 0
 beacon: 0
 glider: 0
 light-weight spaceship: 0
 block: 0
 +++++++++++++++++++++++++++
-1. blinker at 6, 2
+1. beehive at 2, 3
+2. beehive at 8, 8
 ----- Generation 2 -----
-Total Life Beings: 1
+Total Life Beings: 2
 Total Other Beings: 0
 +++++++++++++++++++++++++++
-beehive: 0
+beehive: 2
 loaf: 0
 boat: 0
 tub: 0
-blinker: 1
+blinker: 0
 toad: 0
 beacon: 0
 glider: 0
 light-weight spaceship: 0
 block: 0
 +++++++++++++++++++++++++++
-1. blinker at 6, 2
+1. beehive at 2, 3
+2. beehive at 8, 8
 +++++++ Incidence % +++++++
-beehive: 0.0 %
+beehive: 100.0 %
 loaf: 0.0 %
 boat: 0.0 %
 tub: 0.0 %
-blinker: 33.33 %
+blinker: 0.0 %
 toad: 0.0 %
 beacon: 0.0 %
 glider: 0.0 %
 light-weight spaceship: 0.0 %
 block: 0.0 %
-others: 66.67 %
+others: 0.0 %
