@@ -355,7 +355,7 @@ def main() -> None:
 
     # populate grid
     grid = initConfig(grid, f)
-    addSeed("beehive", 8, 8, grid)
+    #addSeed("beehive", 8, 8, grid)
     #addSeed("glider", 14, 1, grid)
     #addSeed("beacon", 10, 10, grid)
 
