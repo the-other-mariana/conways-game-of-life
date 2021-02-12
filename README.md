@@ -42,7 +42,7 @@ With `<size_number>` and `<number_of_generations>` as integer number parameters,
 
 ## Special Features
 
-This simulation reports at **every generation** how many Life seed patterns are found by its category, and also other entities are counted as 'Others'. At the end of the simulation, a resport with such informations can be found.<br />
+This simulation reports at **every generation** how many Life seed patterns are found by its category, and also other entities are counted as 'Others'. At the end of the simulation, a report with such information can be found.<br />
 
 Seeds are defined following Conway's standards, but the program also generates all their possible rotations and transposed positions, so that the report identifies rotated seeds as well. <br />
 
