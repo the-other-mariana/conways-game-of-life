@@ -309,7 +309,7 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
             handleReport("{n}: {v} %\n".format(n=BEINGS_STR[i], v=round((TOTAL_COUNTERS[i] / (TOTAL_LIVES + TOTAL_OTHERS)) * 100.0, 2) ))
         handleReport("{n}: {v} %\n".format(n="others", v=round((TOTAL_OTHERS / (TOTAL_LIVES + TOTAL_OTHERS)) * 100.0, 2) ))
         handleReport("", True)
-        print(TOTAL_OTHERS, len(reported))
+        print("SUCCESS Simulation Report is available.")
 
     # update data
     ax.set_title("Generation = {0}".format(frameNum))
@@ -339,6 +339,7 @@ def main() -> None:
     else:
         print("Please provide correct arguments. Check the README file for running instructions.")
         return
+    print("SUCCESS Loading input parameters.")
         
     # set animation update interval
     updateInterval = 10

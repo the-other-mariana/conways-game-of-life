@@ -29,44 +29,46 @@ light-weight spaceship: 0
 block: 0
 +++++++++++++++++++++++++++
 ----- Generation 1 -----
-Total Life Beings: 0
+Total Life Beings: 1
 Total Other Beings: 0
 +++++++++++++++++++++++++++
 beehive: 0
 loaf: 0
 boat: 0
 tub: 0
-blinker: 0
+blinker: 1
 toad: 0
 beacon: 0
 glider: 0
 light-weight spaceship: 0
 block: 0
 +++++++++++++++++++++++++++
+1. blinker at 6, 2
 ----- Generation 2 -----
-Total Life Beings: 0
+Total Life Beings: 1
 Total Other Beings: 0
 +++++++++++++++++++++++++++
 beehive: 0
 loaf: 0
 boat: 0
 tub: 0
-blinker: 0
+blinker: 1
 toad: 0
 beacon: 0
 glider: 0
 light-weight spaceship: 0
 block: 0
 +++++++++++++++++++++++++++
+1. blinker at 6, 2
 +++++++ Incidence % +++++++
 beehive: 0.0 %
 loaf: 0.0 %
 boat: 0.0 %
 tub: 0.0 %
-blinker: 0.0 %
+blinker: 33.33 %
 toad: 0.0 %
 beacon: 0.0 %
 glider: 0.0 %
 light-weight spaceship: 0.0 %
 block: 0.0 %
-others: 100.0 %
+others: 66.67 %
