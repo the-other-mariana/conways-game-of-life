@@ -20,6 +20,7 @@ REPORT_STR = ""
 TOTAL_COUNTERS = np.zeros(len(BEINGS))
 TOTAL_LIVES = 0
 TOTAL_OTHERS = 0
+FRAME = 0
 
 # gets the transposed matrix of a given matrix
 def getTranspose(array: np.ndarray) -> np.ndarray:
@@ -228,6 +229,7 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
     visited = np.zeros(N * N).reshape(N, N)
     counters = np.zeros(len(BEINGS))
     reported = []
+    global FRAME
     if frameNum == 1:
         print("SUCCESS Simulation begins.")
 
@@ -263,7 +265,7 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
     TOTAL_LIVES += len(reported)
 
     # report the count at every frame
-    handleReport("------ Generation {0} ------\n".format(frameNum))
+    handleReport("------ Generation {0} ------\n".format(FRAME))
     handleReport("Total Life Beings: {0}\n".format(len(reported)))
     handleReport("Total Other Beings: {0}\n".format(num))
     handleReport("+++++++++++++++++++++++++++\n")
@@ -289,6 +291,7 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
     img.set_data(newGrid)
     img.set_cmap('binary')
     grid[:] = newGrid[:]
+    FRAME += 1
     return img,
 
 # main() function
@@ -327,7 +330,7 @@ def main() -> None:
     grid = initConfig(grid, f)
     #addSeed("beehive", 8, 8, grid)
     #addSeed("glider", 14, 1, grid)
-    addSeed("beacon", 10, 10, grid)
+    #addSeed("beacon", 10, 10, grid)
 
     # generate all possible patterns to check in report
     generateGeneralCases()

@@ -49,6 +49,8 @@ $: python write-config-test.py
     - Beings out of the Life patterns are detected during **each** generation and counted under 'Others' category.
     - The percentage of appearance throughout the simulation. Logically, this percentage is computed after all generations are counted, and therefore can be found **at the end** of the file.
 
+*Important: the report file reaches information until the N-1 frame, where N is the input frame*
+
 ## Special Features
 
 This simulation reports at **every generation** how many Life seed patterns are found by its category, and also other entities are counted as 'Others'. At the end of the simulation, a report with such information can be found.<br />
