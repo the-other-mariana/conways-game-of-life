@@ -222,6 +222,10 @@ def generateRareCases() -> None:
                 RARE_CASES.append(TOTAL_OPTIONS[b])
                 break
 
+def init():
+    # do nothing, avoid calling update twice
+    pass
+
 # updates the animation frame
 def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: mltax.Axes, G: int):
 
@@ -343,10 +347,12 @@ def main() -> None:
     prettifyLife(ax, N)
 
     img = ax.imshow(grid, interpolation='nearest')
+    ax.set_title("Conway's Game of Life\nGeneration = 0 (config)")
+    img.set_cmap('binary')
     ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N, ax, G, ),
                                   frames = G,
                                   interval=updateInterval,
-                                  save_count=50, repeat=False)
+                                  save_count=50, repeat=False, init_func=init)
     plt.show()
 
 
