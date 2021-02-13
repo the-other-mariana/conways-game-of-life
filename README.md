@@ -9,11 +9,20 @@ This is a simulation coded in Python of the cellular automaton model created by 
 Language: `Python 3.8.1`
 
 ### Input
-The simulation always takes as input file the [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file, which defines the initial configuration of the simulation. This file was written through an auxiliar script called [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py), that writes every 'alive' cell as `x,y` coordinates on a single line each. You can create your own initial config by changing the `choice` list inside the [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py) script.
+- The simulation always takes as input file the [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file, which defines the initial configuration of the simulation. 
+- This [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file was written through an auxiliar script called [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py), that writes every 'alive' cell as `x,y` coordinates on a single line each. 
+- You can create your own initial config by changing the `choice` list inside the [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py) script. Then, open Powershell and type:
+
+```bash
+$: python write-config-test.py
+```
 
 ### Output
 
-After running the simulation, the program writes an output file called [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt), which contains all the Life beings detected during **each** generation by their category, and the percentage of appearance throughout the sim.
+- After running the simulation, the program writes an output file called [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt).The file [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt) contains:
+    - All the number of Life beings detected during **each** generation by their category.
+    - Beings out of the Life patterns are detected during **each** generation and counted under 'Others' category.
+    - The percentage of appearance throughout the simulation. Logically, this percentage is computed after all generations are counted, and therefore can be found **at the end** of the file.
 
 ## Usage
 
@@ -30,9 +39,9 @@ $: pip install matplotlib
 ```bash
 $: python conway.py -s 80 -g 200 -i config.dat
 ```
-This will make a Conway Simulation with grid size 80x80 and run 200 generations, with the initial configuration defined in the file [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat), which is the same folder as the [conway.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/conway.py) script.
+This will make a Conway Simulation with grid size 80x80 and run 200 generations, with the initial configuration defined in the file [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat), which is in the same folder as the [conway.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/conway.py) script.
 
-5. At the end of the simulation, you will see the text file [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt) with all the reported Life beings that were tracked throughout every moment in time during the simulation, as well as their percentage of appearance.
+5. At the end of the simulation, you will see the text file [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt) with all the reported Life beings that were tracked throughout every moment in time during the simulation, as well as their percentage of appearance at the **bottom** of the document.
 
 ### General Runs
 ```bash

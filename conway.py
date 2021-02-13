@@ -11,43 +11,7 @@ import matplotlib.image as mltimg
 import matplotlib.axes._subplots as mltax
 
 from queue import Queue
-
-# STILL LIVES
-#BLOCK = [np.array([[0, 0, 0, 0],[0, 255, 255, 0],[0, 255, 255, 0], [0, 0, 0, 0]])]
-BLOCK = [np.array([[0, 0, 0], [0, 255, 255], [0, 255, 255]])]
-
-BEEHIVE = [np.array([[0, 255, 255, 0],[255, 0, 0, 255],[0, 255, 255, 0]])]
-
-LOAF = [np.array([[0, 255, 255, 0],[255, 0, 0, 255],[0, 255, 0, 255], [0, 0, 255, 0]])]
-
-BOAT = [np.array([[255, 255, 0],[255, 0, 255],[0, 255, 0]])]
-
-TUB = [np.array([[0, 255, 0],[255, 0, 255],[0, 255, 0]])]
-
-# OSCILATORS
-BLINKER = [np.array([[0, 255, 0],[0, 255, 0],[0, 255, 0]]),
-           np.array([[0, 0, 0],[255, 255, 255],[0, 0, 0]])]
-
-TOAD = [np.array([[0, 0, 255, 0],[255, 0, 0, 255],[255, 0, 0, 255], [0, 255, 0, 0]]),
-        np.array([[0, 255, 255, 255],[255, 255, 255, 0]])]
-
-BEACON = [np.array([[0, 0, 0, 0, 0, 0],[0, 255, 255, 0, 0, 0],[0, 255, 255, 0, 0, 0],[0, 0, 0, 255, 255, 0], [0, 0, 0, 255, 255, 0], [0, 0, 0, 0, 0, 0]]),
-          np.array([[0, 0, 0, 0, 0, 0],[0, 255, 255, 0, 0, 0],[0, 255, 0, 0, 0, 0],[0, 0, 0, 0, 255, 0], [0, 0, 0, 255, 255, 0], [0, 0, 0, 0, 0, 0]])]
-
-# SPACESHIPS
-GLIDER = [np.array([[0, 255, 0], [0, 0, 255],[255, 255, 255]]),
-          np.array([[255, 0, 255], [0, 255, 255], [0, 255, 0]]),
-          np.array([[0, 0, 255], [255, 0, 255],[0, 255, 255]]),
-          np.array([[255, 0, 0], [0, 255, 255],[255, 255, 0]])]
-
-LWSPACESHIP = [np.array([[255, 0, 0, 255, 0], [0, 0, 0, 0, 255], [255, 0, 0, 0, 255], [0, 255, 255, 255, 255]]),
-               np.array([[0, 0, 255, 255, 0], [255, 255, 0, 255, 255], [255, 255, 255, 255, 0], [0, 255, 255, 0, 0]]),
-               np.array([[0, 255, 255, 255, 255], [255, 0, 0, 0, 255], [0, 0, 0, 0, 255], [255, 0, 0, 255, 0]]),
-               np.array([[0, 255, 255, 0, 0], [255, 255, 255, 255, 0], [255, 255, 0, 255, 255], [0, 0, 255, 255, 0]])]
-
-BEINGS = [BEEHIVE, LOAF, BOAT, TUB, BLINKER, TOAD, BEACON, GLIDER, LWSPACESHIP, BLOCK]
-
-BEINGS_STR = ["beehive", "loaf", "boat", "tub", "blinker", "toad", "beacon", "glider", "light-weight spaceship", "block"]
+from seeds import *
 
 TOTAL_OPTIONS = []
 RARE_CASES = []
@@ -190,7 +154,7 @@ def initConfig(grid: np.ndarray, f: str) -> np.ndarray:
         x = int(coord[0])
         y = int(coord[1])
         if x < 0 or x >= len(grid[0]) or y < 0 or y >= len(grid):
-            print("Warning: input file contains coordinates outside your defined universe.")
+            print("WARNING input file contains coordinates outside your defined universe.")
             continue
         grid[y][x] = 255
     return grid
@@ -226,6 +190,7 @@ def generateGeneralCases() -> None:
                     # all possible rotations
                     rot = rotateArray(rot)
                     temp.append(rot)
+                    print(rot)
                 if t == 4:
                     # the transpose
                     trans = getTranspose(BEINGS[b][o])
@@ -260,7 +225,6 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
     visited = np.zeros(N * N).reshape(N, N)
     counters = np.zeros(len(BEINGS))
     reported = []
-
     if frameNum == 1:
         print("SUCCESS Simulation begins.")
 
@@ -294,7 +258,7 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
     global TOTAL_LIVES
     TOTAL_LIVES += len(reported)
 
-    handleReport("----- Generation {0} -----\n".format(frameNum))
+    handleReport("------ Generation {0} ------\n".format(frameNum))
     handleReport("Total Life Beings: {0}\n".format(len(reported)))
     handleReport("Total Other Beings: {0}\n".format(num))
     handleReport("+++++++++++++++++++++++++++\n")
@@ -315,7 +279,7 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
         print("SUCCESS Simulation Report is available.")
 
     # update data
-    ax.set_title("Generation = {0}".format(frameNum))
+    ax.set_title("Conway's Game of Life\nGeneration = {0}".format(frameNum + 1))
     img.set_data(newGrid)
     img.set_cmap('binary')
     grid[:] = newGrid[:]
@@ -357,7 +321,7 @@ def main() -> None:
     grid = initConfig(grid, f)
     #addSeed("beehive", 8, 8, grid)
     #addSeed("glider", 14, 1, grid)
-    #addSeed("beacon", 10, 10, grid)
+    addSeed("beacon", 10, 10, grid)
 
     # generate all possible patterns to check in report
     generateGeneralCases()
