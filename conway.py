@@ -13,6 +13,7 @@ import matplotlib.axes._subplots as mltax
 from queue import Queue
 from seeds import *
 
+# global variables for ease of use throughout the program
 TOTAL_OPTIONS = []
 RARE_CASES = []
 REPORT_STR = ""
@@ -34,8 +35,11 @@ def rotateArray(a: np.ndarray) -> np.ndarray:
             r[j][(y - i) - 1] = a[i][j]
     return r
 
-# adds a predefined seed to grid in i,j cell
+# adds a predefined seed to grid in i,j cell for DEBUG PURPOSES
 def addSeed(type: str, i: int, j: int, grid: np.ndarray) -> None:
+    if i >= len(grid) or i < 0 or j >= len(grid[0]) or j < 0:
+        print("WARNING Desired seed is outside of the universe range.")
+        return
     life = np.array([])
     if type == "block":
         life = BLOCK[0]
@@ -66,7 +70,7 @@ def checkNeighbours(r: int, c: int, grid: np.ndarray) -> int:
                 alive += 1
     return alive
 
-# add neighbours to queue to region counting purposes
+# adds neighbours to queue for region counting purposes
 def enqueueNeighbours(grid: np.ndarray, r: int, c: int, q: Queue) -> Queue:
     coord = [0, 0]
     for i in range(r - 1, r + 2, 1):
@@ -177,7 +181,7 @@ def countOthers(grid: np.ndarray, visited: np.ndarray):
                 num += 1
     return num, visited
 
-# generate all possible options of the different lives rotated and transposed for report
+# generate all possible options of the different lives rotated and transposed for report accuracy
 def generateGeneralCases() -> None:
     global TOTAL_OPTIONS
     for b in range(len(BEINGS)):
@@ -190,7 +194,6 @@ def generateGeneralCases() -> None:
                     # all possible rotations
                     rot = rotateArray(rot)
                     temp.append(rot)
-                    print(rot)
                 if t == 4:
                     # the transpose
                     trans = getTranspose(BEINGS[b][o])
@@ -218,7 +221,7 @@ def generateRareCases() -> None:
                 RARE_CASES.append(TOTAL_OPTIONS[b])
                 break
 
-
+# updates the animation frame
 def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: mltax.Axes, G: int):
 
     newGrid = grid.copy()
@@ -228,6 +231,7 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
     if frameNum == 1:
         print("SUCCESS Simulation begins.")
 
+    # implementation of the rules of Life
     for i in range(N):
         for j in range(N):
             rareCase = False
@@ -258,6 +262,7 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
     global TOTAL_LIVES
     TOTAL_LIVES += len(reported)
 
+    # report the count at every frame
     handleReport("------ Generation {0} ------\n".format(frameNum))
     handleReport("Total Life Beings: {0}\n".format(len(reported)))
     handleReport("Total Other Beings: {0}\n".format(num))
@@ -268,8 +273,9 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
     for j in range(len(reported)):
         handleReport("{i}. {n} at {y}, {x}\n".format(i=j + 1, n=BEINGS_STR[reported[j][0]], y=reported[j][1], x=reported[j][2]))
 
+    # at last, calculate percentage of appearance
     if frameNum == (G - 1):
-        handleReport("+++++++ Incidence % +++++++\n")
+        handleReport("======= Incidence % =======\n")
         if TOTAL_LIVES == 0 and TOTAL_OTHERS == 0:
             TOTAL_LIVES = 1 # to avoid div by zero
         for i in range(len(BEINGS)):
@@ -309,7 +315,7 @@ def main() -> None:
     print("SUCCESS Loading input parameters.")
         
     # set animation update interval
-    updateInterval = 10
+    updateInterval = 5
     if N < 50:
         updateInterval = 500
 

@@ -4,26 +4,6 @@ This is a simulation coded in Python of the cellular automaton model created by 
 
 ![image](https://github.com/the-other-mariana/conways-game-of-life/blob/master/extras/test-1-gif.gif)
 
-## Specifications
-
-Language: `Python 3.8.1`
-
-### Input
-- The simulation always takes as input file the [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file, which defines the initial configuration of the simulation. 
-- This [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file was written through an auxiliar script called [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py), that writes every 'alive' cell as `x,y` coordinates on a single line each. 
-- You can create your own initial config by changing the `choice` list inside the [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py) script. Then, open Powershell and type:
-
-```bash
-$: python write-config-test.py
-```
-
-### Output
-
-- After running the simulation, the program writes an output file called [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt).The file [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt) contains:
-    - All the number of Life beings detected during **each** generation by their category.
-    - Beings out of the Life patterns are detected during **each** generation and counted under 'Others' category.
-    - The percentage of appearance throughout the simulation. Logically, this percentage is computed after all generations are counted, and therefore can be found **at the end** of the file.
-
 ## Usage
 
 ### Get Started
@@ -48,6 +28,26 @@ This will make a Conway Simulation with grid size 80x80 and run 200 generations,
 $: python conway.py -s <size_number> -g <number_of_generations> -i <init_file>
 ```
 With `<size_number>` and `<number_of_generations>` as integer number parameters, and `<init_file>` as the file name of the initial configuration input file. <br />
+
+## Specifications
+
+Language: `Python 3.8.1`
+
+### Input
+- The simulation always takes as input file the [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file, which defines the initial configuration of the simulation. 
+- This [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file was written through an auxiliar script called [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py), that writes every 'alive' cell as `x,y` coordinates on a single line each. 
+- *Optional:* You can create your own initial config by changing the `choice` list inside the [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py) script. Then, open Powershell and type:
+
+```bash
+$: python write-config-test.py
+```
+
+### Output
+
+- After running the simulation, the program writes an output file called [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt).The file [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt) contains:
+    - All the number of Life beings detected during **each** generation by their category.
+    - Beings out of the Life patterns are detected during **each** generation and counted under 'Others' category.
+    - The percentage of appearance throughout the simulation. Logically, this percentage is computed after all generations are counted, and therefore can be found **at the end** of the file.
 
 ## Special Features
 
