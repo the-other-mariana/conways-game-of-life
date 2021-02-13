@@ -13,7 +13,7 @@ choice = data2
 
 f = open("config.dat", "w")
 data_str = ""
-separator = ","
+separator = " "
 for d in choice:
     point = str(d[0]) + separator + str(d[1]) + "\n"
     data_str += point

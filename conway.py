@@ -156,11 +156,11 @@ def initConfig(grid: np.ndarray, f: str) -> np.ndarray:
     file1 = open(f, 'r')
     flines = file1.readlines()
     for line in flines:
-        coord = line.split(',')
+        coord = line.split(' ')
         x = int(coord[0])
         y = int(coord[1])
         if x < 0 or x >= len(grid[0]) or y < 0 or y >= len(grid):
-            print("WARNING input file contains coordinates outside your defined universe.")
+            print("WARNING Coordinates ({X},{Y}) are outside your defined universe. Check your -s parameter.".format(X=x, Y=y))
             continue
         grid[y][x] = 255
     return grid
@@ -289,7 +289,7 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
             handleReport("{n}: {v} %\n".format(n=BEINGS_STR[i], v=round((TOTAL_COUNTERS[i] / (TOTAL_LIVES + TOTAL_OTHERS)) * 100.0, 2) ))
         handleReport("{n}: {v} %\n".format(n="others", v=round((TOTAL_OTHERS / (TOTAL_LIVES + TOTAL_OTHERS)) * 100.0, 2) ))
         handleReport("", True)
-        print("SUCCESS Simulation Report is available.")
+        print("SUCCESS Simulation Report is now available.")
 
     # update data
     ax.set_title("Conway's Game of Life\nGeneration = {0}".format(frameNum + 1))
@@ -306,7 +306,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Runs Conway's Game of Life implementation from Mariana Avalos (the-other-mariana).")
     parser.add_argument('-s', '--size', type=int, required=True, help="[INTEGER] Determines the N size of an NxN universe.")
     parser.add_argument('-g', '--gen', type=int, required=True, help="[INTEGER] Determines the number of generations")
-    parser.add_argument('-i', '--input', type=str, default='config.dat', help="[STRING] Determines the initial config file. Defaults to config.dat file.")
+    parser.add_argument('-i', '--input', type=str, required=True, help="[STRING] Determines the initial config file.")
     args = parser.parse_args()
 
     # validation of args
