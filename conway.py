@@ -160,12 +160,12 @@ def initConfig(grid: np.ndarray, f: str) -> np.ndarray:
         x = int(coord[0])
         y = int(coord[1])
         if x < 0 or x >= len(grid[0]) or y < 0 or y >= len(grid):
-            print("WARNING Coordinates ({X},{Y}) are outside your defined universe. Check your -s parameter.".format(X=x, Y=y))
+            print("WARNING Coordinates ({X},{Y}) are outside your defined universe. Check that coordinates are within -s parameter.".format(X=x, Y=y))
             continue
         grid[y][x] = 255
     return grid
 
-# count every alive set of cells as other
+# count every alive set of cells as other using a queue of neighbours
 def countOthers(grid: np.ndarray, visited: np.ndarray):
     q = Queue()
     num = 0
@@ -254,14 +254,17 @@ def update(frameNum: int, img: mltimg.AxesImage, grid: np.ndarray, N: int, ax: m
                 newGrid[i][j] = 0
             if me != 255 and myNeighbours == 3: # reproduction
                 newGrid[i][j] = 255
+            # count Life patterns if not checked already
             if int(visited[i][j]) == 0:
                 res, visited = countLife(i, j, grid, visited, rareCase)
+                # if something detected, count it
                 if len(res) > 0:
                     reported.append(res)
                     counters[int(res[0])] += 1
                     global TOTAL_COUNTERS
                     TOTAL_COUNTERS[int(res[0])] += 1
 
+    # update total counters for seeds and others
     num, visited = countOthers(grid, visited)
     global TOTAL_OTHERS
     TOTAL_OTHERS += num
@@ -305,17 +308,17 @@ def main() -> None:
     # parse arguments
     parser = argparse.ArgumentParser(description="Runs Conway's Game of Life implementation from Mariana Avalos (the-other-mariana).")
     parser.add_argument('-s', '--size', type=int, required=True, help="[INTEGER] Determines the N size of an NxN universe.")
-    parser.add_argument('-g', '--gen', type=int, required=True, help="[INTEGER] Determines the number of generations")
-    parser.add_argument('-i', '--input', type=str, required=True, help="[STRING] Determines the initial config file.")
+    parser.add_argument('-g', '--generations', type=int, required=True, help="[INTEGER] Determines the number of generations")
+    parser.add_argument('-i', '--input', type=str, required=True, help="[STRING] Determines the initial config filename.")
     args = parser.parse_args()
 
     # validation of args
     if len(sys.argv) < 2:
         print("Please provide arguments by typing: python conway.py -s <size_number> -g <number_of_generations> -i <init_file>")
         return
-    elif bool(args.size) and bool(args.gen) and bool(args.input):
+    elif bool(args.size) and bool(args.generations) and bool(args.input):
         N = int(args.size)
-        G = int(args.gen)
+        G = int(args.generations)
         f = str(args.input)
     else:
         print("Please provide correct arguments. Check the README file for running instructions.")
