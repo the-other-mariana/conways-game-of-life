@@ -12,6 +12,7 @@ import matplotlib.axes._subplots as mltax
 
 from queue import Queue
 from seeds import *
+import time
 
 # global variables for ease of use throughout the program
 TOTAL_OPTIONS = []
@@ -333,7 +334,7 @@ def main() -> None:
     # populate grid
     grid = initConfig(grid, f)
     #addSeed("beehive", 8, 8, grid)
-    #addSeed("glider", 14, 1, grid)
+    #addSeed("glider", 1, 1, grid)
     #addSeed("beacon", 10, 10, grid)
 
     # generate all possible patterns to check in report

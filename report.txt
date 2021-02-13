@@ -1,63 +1,2164 @@
 ------ Generation 0 ------
-Total Life Beings: 2
-Total Other Beings: 1
+Total Life Beings: 4
+Total Other Beings: 10
 +++++++++++++++++++++++++++
-beehive: 2
+beehive: 0
 loaf: 0
 boat: 0
 tub: 0
-blinker: 0
+blinker: 1
 toad: 0
 beacon: 0
 glider: 0
 light-weight spaceship: 0
-block: 0
+block: 3
 +++++++++++++++++++++++++++
-1. beehive at 2, 3
-2. beehive at 8, 8
+1. block at 19, 39
+2. blinker at 29, 39
+3. block at 39, 40
+4. block at 53, 41
 ------ Generation 1 ------
-Total Life Beings: 2
-Total Other Beings: 1
+Total Life Beings: 4
+Total Other Beings: 10
 +++++++++++++++++++++++++++
-beehive: 2
+beehive: 0
 loaf: 0
 boat: 0
 tub: 0
-blinker: 0
+blinker: 1
 toad: 0
 beacon: 0
 glider: 0
 light-weight spaceship: 0
-block: 0
+block: 3
 +++++++++++++++++++++++++++
-1. beehive at 2, 3
-2. beehive at 8, 8
+1. block at 19, 39
+2. block at 35, 38
+3. blinker at 41, 41
+4. block at 53, 41
 ------ Generation 2 ------
-Total Life Beings: 2
-Total Other Beings: 0
+Total Life Beings: 5
+Total Other Beings: 9
 +++++++++++++++++++++++++++
-beehive: 2
+beehive: 0
+loaf: 0
+boat: 2
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 28, 39
+3. boat at 41, 39
+4. boat at 41, 43
+5. block at 53, 41
+------ Generation 3 ------
+Total Life Beings: 5
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
 loaf: 0
 boat: 0
+tub: 0
+blinker: 1
+toad: 1
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. toad at 28, 39
+3. glider at 37, 39
+4. blinker at 43, 41
+5. block at 53, 41
+------ Generation 4 ------
+Total Life Beings: 5
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 1
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 27, 39
+3. blinker at 36, 38
+4. toad at 39, 43
+5. block at 53, 41
+------ Generation 5 ------
+Total Life Beings: 6
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+block: 5
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 28, 38
+3. block at 30, 36
+4. block at 30, 41
+5. blinker at 44, 41
+6. block at 53, 41
+------ Generation 6 ------
+Total Life Beings: 6
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 26, 39
+3. block at 31, 36
+4. block at 31, 41
+5. glider at 35, 39
+6. block at 53, 41
+------ Generation 7 ------
+Total Life Beings: 5
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 35, 40
+3. block at 36, 37
+4. blinker at 45, 41
+5. block at 53, 41
+------ Generation 8 ------
+Total Life Beings: 5
+Total Other Beings: 19
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 1
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 38, 39
+3. block at 39, 38
+4. toad at 44, 41
+5. block at 53, 41
+------ Generation 9 ------
+Total Life Beings: 4
+Total Other Beings: 15
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 34, 41
+3. blinker at 46, 41
+4. block at 53, 41
+------ Generation 10 ------
+Total Life Beings: 8
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+block: 7
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 25, 38
+3. blinker at 34, 41
+4. block at 35, 37
+5. block at 42, 38
+6. block at 42, 43
+7. block at 45, 40
+8. block at 53, 41
+------ Generation 11 ------
+Total Life Beings: 8
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 4
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 27, 39
+3. blinker at 34, 41
+4. blinker at 35, 38
+5. block at 42, 38
+6. block at 42, 43
+7. blinker at 47, 41
+8. block at 53, 41
+------ Generation 12 ------
+Total Life Beings: 4
+Total Other Beings: 19
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 2
 tub: 0
 blinker: 0
 toad: 0
 beacon: 0
 glider: 0
 light-weight spaceship: 0
-block: 0
+block: 2
 +++++++++++++++++++++++++++
-1. beehive at 2, 3
-2. beehive at 8, 8
+1. block at 19, 39
+2. boat at 27, 37
+3. boat at 27, 41
+4. block at 53, 41
+------ Generation 13 ------
+Total Life Beings: 4
+Total Other Beings: 16
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 0
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 24, 38
+3. blinker at 29, 39
+4. block at 53, 41
+------ Generation 14 ------
+Total Life Beings: 5
+Total Other Beings: 16
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 1
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 25, 38
+3. block at 35, 37
+4. boat at 39, 38
+5. block at 53, 41
+------ Generation 15 ------
+Total Life Beings: 5
+Total Other Beings: 11
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 30, 39
+3. glider at 39, 38
+4. block at 48, 40
+5. block at 53, 41
+------ Generation 16 ------
+Total Life Beings: 5
+Total Other Beings: 12
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 23, 38
+3. glider at 39, 37
+4. blinker at 46, 41
+5. block at 53, 41
+------ Generation 17 ------
+Total Life Beings: 7
+Total Other Beings: 9
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 2
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. beehive at 23, 39
+3. blinker at 31, 39
+4. glider at 39, 37
+5. boat at 46, 39
+6. boat at 46, 43
+7. block at 53, 41
+------ Generation 18 ------
+Total Life Beings: 7
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 1
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. beehive at 23, 39
+3. toad at 30, 39
+4. glider at 40, 37
+5. blinker at 44, 41
+6. block at 49, 40
+7. block at 53, 41
+------ Generation 19 ------
+Total Life Beings: 6
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 3
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 1
++++++++++++++++++++++++++++
+1. blinker at 21, 38
+2. blinker at 32, 39
+3. glider at 40, 37
+4. blinker at 47, 41
+5. glider at 48, 40
+6. block at 53, 41
+------ Generation 20 ------
+Total Life Beings: 6
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 28, 36
+2. block at 28, 41
+3. block at 31, 38
+4. glider at 40, 36
+5. blinker at 43, 41
+6. block at 53, 41
+------ Generation 21 ------
+Total Life Beings: 6
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 28, 36
+2. block at 28, 41
+3. blinker at 33, 39
+4. glider at 40, 36
+5. block at 49, 40
+6. block at 53, 41
+------ Generation 22 ------
+Total Life Beings: 5
+Total Other Beings: 11
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 41, 36
+3. blinker at 42, 41
+4. beehive at 49, 41
+5. block at 53, 41
+------ Generation 23 ------
+Total Life Beings: 5
+Total Other Beings: 16
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 1
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 41, 36
+3. toad at 42, 41
+4. beehive at 49, 41
+5. block at 54, 41
+------ Generation 24 ------
+Total Life Beings: 4
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 1
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 41, 35
+3. blinker at 41, 41
+4. blinker at 50, 40
+------ Generation 25 ------
+Total Life Beings: 6
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 5
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 34, 38
+3. glider at 41, 35
+4. block at 42, 40
+5. block at 44, 38
+6. block at 44, 43
+------ Generation 26 ------
+Total Life Beings: 6
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 32, 39
+3. blinker at 40, 41
+4. glider at 42, 35
+5. block at 45, 38
+6. block at 45, 43
+------ Generation 27 ------
+Total Life Beings: 5
+Total Other Beings: 11
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 2
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. boat at 32, 37
+3. boat at 32, 41
+4. glider at 42, 35
+5. block at 53, 41
+------ Generation 28 ------
+Total Life Beings: 5
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 30, 39
+3. block at 35, 38
+4. glider at 42, 34
+5. block at 53, 41
+------ Generation 29 ------
+Total Life Beings: 5
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 33, 39
+3. glider at 34, 38
+4. glider at 42, 34
+5. block at 53, 41
+------ Generation 30 ------
+Total Life Beings: 5
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 29, 39
+3. block at 39, 40
+4. glider at 43, 34
+5. block at 53, 41
+------ Generation 31 ------
+Total Life Beings: 5
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 35, 38
+3. blinker at 41, 41
+4. glider at 43, 34
+5. block at 53, 41
+------ Generation 32 ------
+Total Life Beings: 6
+Total Other Beings: 9
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 2
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 28, 39
+3. boat at 41, 39
+4. boat at 41, 43
+5. glider at 43, 33
+6. block at 53, 41
+------ Generation 33 ------
+Total Life Beings: 6
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 1
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. toad at 28, 39
+3. glider at 37, 39
+4. glider at 43, 33
+5. blinker at 43, 41
+6. block at 53, 41
+------ Generation 34 ------
+Total Life Beings: 6
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 1
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 27, 39
+3. blinker at 36, 38
+4. toad at 39, 43
+5. glider at 44, 33
+6. block at 53, 41
+------ Generation 35 ------
+Total Life Beings: 7
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 5
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 28, 38
+3. block at 30, 36
+4. block at 30, 41
+5. glider at 44, 33
+6. blinker at 44, 41
+7. block at 53, 41
+------ Generation 36 ------
+Total Life Beings: 7
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 26, 39
+3. block at 31, 36
+4. block at 31, 41
+5. glider at 35, 39
+6. glider at 44, 32
+7. block at 53, 41
+------ Generation 37 ------
+Total Life Beings: 6
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 35, 40
+3. block at 36, 37
+4. glider at 44, 32
+5. blinker at 45, 41
+6. block at 53, 41
+------ Generation 38 ------
+Total Life Beings: 6
+Total Other Beings: 19
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 1
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 38, 39
+3. block at 39, 38
+4. toad at 44, 41
+5. glider at 45, 32
+6. block at 53, 41
+------ Generation 39 ------
+Total Life Beings: 5
+Total Other Beings: 15
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 34, 41
+3. glider at 45, 32
+4. blinker at 46, 41
+5. block at 53, 41
+------ Generation 40 ------
+Total Life Beings: 9
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 7
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 25, 38
+3. blinker at 34, 41
+4. block at 35, 37
+5. block at 42, 38
+6. block at 42, 43
+7. glider at 45, 31
+8. block at 45, 40
+9. block at 53, 41
+------ Generation 41 ------
+Total Life Beings: 9
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 4
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 27, 39
+3. blinker at 34, 41
+4. blinker at 35, 38
+5. block at 42, 38
+6. block at 42, 43
+7. glider at 45, 31
+8. blinker at 47, 41
+9. block at 53, 41
+------ Generation 42 ------
+Total Life Beings: 5
+Total Other Beings: 19
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 2
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. boat at 27, 37
+3. boat at 27, 41
+4. glider at 46, 31
+5. block at 53, 41
+------ Generation 43 ------
+Total Life Beings: 5
+Total Other Beings: 16
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 1
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 24, 38
+3. blinker at 29, 39
+4. glider at 46, 31
+5. block at 53, 41
+------ Generation 44 ------
+Total Life Beings: 6
+Total Other Beings: 16
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 1
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 25, 38
+3. block at 35, 37
+4. boat at 39, 38
+5. glider at 46, 30
+6. block at 53, 41
+------ Generation 45 ------
+Total Life Beings: 6
+Total Other Beings: 11
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 30, 39
+3. glider at 39, 38
+4. glider at 46, 30
+5. block at 48, 40
+6. block at 53, 41
+------ Generation 46 ------
+Total Life Beings: 6
+Total Other Beings: 12
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 23, 38
+3. glider at 39, 37
+4. blinker at 46, 41
+5. glider at 47, 30
+6. block at 53, 41
+------ Generation 47 ------
+Total Life Beings: 8
+Total Other Beings: 9
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 2
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. beehive at 23, 39
+3. blinker at 31, 39
+4. glider at 39, 37
+5. boat at 46, 39
+6. boat at 46, 43
+7. glider at 47, 30
+8. block at 53, 41
+------ Generation 48 ------
+Total Life Beings: 8
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 1
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. beehive at 23, 39
+3. toad at 30, 39
+4. glider at 40, 37
+5. blinker at 44, 41
+6. glider at 47, 29
+7. block at 49, 40
+8. block at 53, 41
+------ Generation 49 ------
+Total Life Beings: 7
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 3
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 1
++++++++++++++++++++++++++++
+1. blinker at 21, 38
+2. blinker at 32, 39
+3. glider at 40, 37
+4. glider at 47, 29
+5. blinker at 47, 41
+6. glider at 48, 40
+7. block at 53, 41
+------ Generation 50 ------
+Total Life Beings: 7
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 28, 36
+2. block at 28, 41
+3. block at 31, 38
+4. glider at 40, 36
+5. blinker at 43, 41
+6. glider at 48, 29
+7. block at 53, 41
+------ Generation 51 ------
+Total Life Beings: 7
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 28, 36
+2. block at 28, 41
+3. blinker at 33, 39
+4. glider at 40, 36
+5. glider at 48, 29
+6. block at 49, 40
+7. block at 53, 41
+------ Generation 52 ------
+Total Life Beings: 6
+Total Other Beings: 11
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 41, 36
+3. blinker at 42, 41
+4. glider at 48, 28
+5. beehive at 49, 41
+6. block at 53, 41
+------ Generation 53 ------
+Total Life Beings: 6
+Total Other Beings: 16
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 1
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 41, 36
+3. toad at 42, 41
+4. glider at 48, 28
+5. beehive at 49, 41
+6. block at 54, 41
+------ Generation 54 ------
+Total Life Beings: 5
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 1
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 41, 35
+3. blinker at 41, 41
+4. glider at 49, 28
+5. blinker at 50, 40
+------ Generation 55 ------
+Total Life Beings: 7
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 5
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 34, 38
+3. glider at 41, 35
+4. block at 42, 40
+5. block at 44, 38
+6. block at 44, 43
+7. glider at 49, 28
+------ Generation 56 ------
+Total Life Beings: 7
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 32, 39
+3. blinker at 40, 41
+4. glider at 42, 35
+5. block at 45, 38
+6. block at 45, 43
+7. glider at 49, 27
+------ Generation 57 ------
+Total Life Beings: 6
+Total Other Beings: 11
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 2
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. boat at 32, 37
+3. boat at 32, 41
+4. glider at 42, 35
+5. glider at 49, 27
+6. block at 53, 41
+------ Generation 58 ------
+Total Life Beings: 6
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 30, 39
+3. block at 35, 38
+4. glider at 42, 34
+5. glider at 50, 27
+6. block at 53, 41
+------ Generation 59 ------
+Total Life Beings: 6
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 33, 39
+3. glider at 34, 38
+4. glider at 42, 34
+5. glider at 50, 27
+6. block at 53, 41
+------ Generation 60 ------
+Total Life Beings: 6
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 29, 39
+3. block at 39, 40
+4. glider at 43, 34
+5. glider at 50, 26
+6. block at 53, 41
+------ Generation 61 ------
+Total Life Beings: 6
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 35, 38
+3. blinker at 41, 41
+4. glider at 43, 34
+5. glider at 50, 26
+6. block at 53, 41
+------ Generation 62 ------
+Total Life Beings: 7
+Total Other Beings: 9
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 2
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 28, 39
+3. boat at 41, 39
+4. boat at 41, 43
+5. glider at 43, 33
+6. glider at 51, 26
+7. block at 53, 41
+------ Generation 63 ------
+Total Life Beings: 7
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 1
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. toad at 28, 39
+3. glider at 37, 39
+4. glider at 43, 33
+5. blinker at 43, 41
+6. glider at 51, 26
+7. block at 53, 41
+------ Generation 64 ------
+Total Life Beings: 7
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 1
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 27, 39
+3. blinker at 36, 38
+4. toad at 39, 43
+5. glider at 44, 33
+6. glider at 51, 25
+7. block at 53, 41
+------ Generation 65 ------
+Total Life Beings: 8
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 5
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 28, 38
+3. block at 30, 36
+4. block at 30, 41
+5. glider at 44, 33
+6. blinker at 44, 41
+7. glider at 51, 25
+8. block at 53, 41
+------ Generation 66 ------
+Total Life Beings: 8
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 26, 39
+3. block at 31, 36
+4. block at 31, 41
+5. glider at 35, 39
+6. glider at 44, 32
+7. glider at 52, 25
+8. block at 53, 41
+------ Generation 67 ------
+Total Life Beings: 7
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 35, 40
+3. block at 36, 37
+4. glider at 44, 32
+5. blinker at 45, 41
+6. glider at 52, 25
+7. block at 53, 41
+------ Generation 68 ------
+Total Life Beings: 7
+Total Other Beings: 19
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 1
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 38, 39
+3. block at 39, 38
+4. toad at 44, 41
+5. glider at 45, 32
+6. glider at 52, 24
+7. block at 53, 41
+------ Generation 69 ------
+Total Life Beings: 6
+Total Other Beings: 15
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 34, 41
+3. glider at 45, 32
+4. blinker at 46, 41
+5. glider at 52, 24
+6. block at 53, 41
+------ Generation 70 ------
+Total Life Beings: 10
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 7
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 25, 38
+3. blinker at 34, 41
+4. block at 35, 37
+5. block at 42, 38
+6. block at 42, 43
+7. glider at 45, 31
+8. block at 45, 40
+9. glider at 53, 24
+10. block at 53, 41
+------ Generation 71 ------
+Total Life Beings: 10
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 4
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 27, 39
+3. blinker at 34, 41
+4. blinker at 35, 38
+5. block at 42, 38
+6. block at 42, 43
+7. glider at 45, 31
+8. blinker at 47, 41
+9. glider at 53, 24
+10. block at 53, 41
+------ Generation 72 ------
+Total Life Beings: 6
+Total Other Beings: 19
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 2
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. boat at 27, 37
+3. boat at 27, 41
+4. glider at 46, 31
+5. glider at 53, 23
+6. block at 53, 41
+------ Generation 73 ------
+Total Life Beings: 6
+Total Other Beings: 16
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 2
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 24, 38
+3. blinker at 29, 39
+4. glider at 46, 31
+5. glider at 53, 23
+6. block at 53, 41
+------ Generation 74 ------
+Total Life Beings: 7
+Total Other Beings: 16
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 1
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 25, 38
+3. block at 35, 37
+4. boat at 39, 38
+5. glider at 46, 30
+6. block at 53, 41
+7. glider at 54, 23
+------ Generation 75 ------
+Total Life Beings: 7
+Total Other Beings: 11
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 30, 39
+3. glider at 39, 38
+4. glider at 46, 30
+5. block at 48, 40
+6. block at 53, 41
+7. glider at 54, 23
+------ Generation 76 ------
+Total Life Beings: 7
+Total Other Beings: 12
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 23, 38
+3. glider at 39, 37
+4. blinker at 46, 41
+5. glider at 47, 30
+6. block at 53, 41
+7. glider at 54, 22
+------ Generation 77 ------
+Total Life Beings: 9
+Total Other Beings: 9
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 2
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. beehive at 23, 39
+3. blinker at 31, 39
+4. glider at 39, 37
+5. boat at 46, 39
+6. boat at 46, 43
+7. glider at 47, 30
+8. block at 53, 41
+9. glider at 54, 22
+------ Generation 78 ------
+Total Life Beings: 9
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 1
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. beehive at 23, 39
+3. toad at 30, 39
+4. glider at 40, 37
+5. blinker at 44, 41
+6. glider at 47, 29
+7. block at 49, 40
+8. block at 53, 41
+9. glider at 55, 22
+------ Generation 79 ------
+Total Life Beings: 8
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 3
+toad: 0
+beacon: 0
+glider: 4
+light-weight spaceship: 0
+block: 1
++++++++++++++++++++++++++++
+1. blinker at 21, 38
+2. blinker at 32, 39
+3. glider at 40, 37
+4. glider at 47, 29
+5. blinker at 47, 41
+6. glider at 48, 40
+7. block at 53, 41
+8. glider at 55, 22
+------ Generation 80 ------
+Total Life Beings: 8
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 28, 36
+2. block at 28, 41
+3. block at 31, 38
+4. glider at 40, 36
+5. blinker at 43, 41
+6. glider at 48, 29
+7. block at 53, 41
+8. glider at 55, 21
+------ Generation 81 ------
+Total Life Beings: 8
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 28, 36
+2. block at 28, 41
+3. blinker at 33, 39
+4. glider at 40, 36
+5. glider at 48, 29
+6. block at 49, 40
+7. block at 53, 41
+8. glider at 55, 21
+------ Generation 82 ------
+Total Life Beings: 7
+Total Other Beings: 11
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 41, 36
+3. blinker at 42, 41
+4. glider at 48, 28
+5. beehive at 49, 41
+6. block at 53, 41
+7. glider at 56, 21
+------ Generation 83 ------
+Total Life Beings: 7
+Total Other Beings: 16
++++++++++++++++++++++++++++
+beehive: 1
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 1
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 41, 36
+3. toad at 42, 41
+4. glider at 48, 28
+5. beehive at 49, 41
+6. block at 54, 41
+7. glider at 56, 21
+------ Generation 84 ------
+Total Life Beings: 6
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 1
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 41, 35
+3. blinker at 41, 41
+4. glider at 49, 28
+5. blinker at 50, 40
+6. glider at 56, 20
+------ Generation 85 ------
+Total Life Beings: 8
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 5
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 34, 38
+3. glider at 41, 35
+4. block at 42, 40
+5. block at 44, 38
+6. block at 44, 43
+7. glider at 49, 28
+8. glider at 56, 20
+------ Generation 86 ------
+Total Life Beings: 8
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 32, 39
+3. blinker at 40, 41
+4. glider at 42, 35
+5. block at 45, 38
+6. block at 45, 43
+7. glider at 49, 27
+8. glider at 57, 20
+------ Generation 87 ------
+Total Life Beings: 7
+Total Other Beings: 11
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 2
+tub: 0
+blinker: 0
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. boat at 32, 37
+3. boat at 32, 41
+4. glider at 42, 35
+5. glider at 49, 27
+6. block at 53, 41
+7. glider at 57, 20
+------ Generation 88 ------
+Total Life Beings: 7
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 30, 39
+3. block at 35, 38
+4. glider at 42, 34
+5. glider at 50, 27
+6. block at 53, 41
+7. glider at 57, 19
+------ Generation 89 ------
+Total Life Beings: 7
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 4
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 33, 39
+3. glider at 34, 38
+4. glider at 42, 34
+5. glider at 50, 27
+6. block at 53, 41
+7. glider at 57, 19
+------ Generation 90 ------
+Total Life Beings: 7
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 29, 39
+3. block at 39, 40
+4. glider at 43, 34
+5. glider at 50, 26
+6. block at 53, 41
+7. glider at 58, 19
+------ Generation 91 ------
+Total Life Beings: 7
+Total Other Beings: 10
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 35, 38
+3. blinker at 41, 41
+4. glider at 43, 34
+5. glider at 50, 26
+6. block at 53, 41
+7. glider at 58, 19
+------ Generation 92 ------
+Total Life Beings: 8
+Total Other Beings: 9
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 2
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 28, 39
+3. boat at 41, 39
+4. boat at 41, 43
+5. glider at 43, 33
+6. glider at 51, 26
+7. block at 53, 41
+8. glider at 58, 18
+------ Generation 93 ------
+Total Life Beings: 8
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 1
+beacon: 0
+glider: 4
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. toad at 28, 39
+3. glider at 37, 39
+4. glider at 43, 33
+5. blinker at 43, 41
+6. glider at 51, 26
+7. block at 53, 41
+8. glider at 58, 18
+------ Generation 94 ------
+Total Life Beings: 8
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 1
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 27, 39
+3. blinker at 36, 38
+4. toad at 39, 43
+5. glider at 44, 33
+6. glider at 51, 25
+7. block at 53, 41
+8. glider at 59, 18
+------ Generation 95 ------
+Total Life Beings: 9
+Total Other Beings: 8
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 5
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 28, 38
+3. block at 30, 36
+4. block at 30, 41
+5. glider at 44, 33
+6. blinker at 44, 41
+7. glider at 51, 25
+8. block at 53, 41
+9. glider at 59, 18
+------ Generation 96 ------
+Total Life Beings: 9
+Total Other Beings: 14
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 4
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 26, 39
+3. block at 31, 36
+4. block at 31, 41
+5. glider at 35, 39
+6. glider at 44, 32
+7. glider at 52, 25
+8. block at 53, 41
+9. glider at 59, 17
+------ Generation 97 ------
+Total Life Beings: 8
+Total Other Beings: 13
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 1
+toad: 0
+beacon: 0
+glider: 4
+light-weight spaceship: 0
+block: 3
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. glider at 35, 40
+3. block at 36, 37
+4. glider at 44, 32
+5. blinker at 45, 41
+6. glider at 52, 25
+7. block at 53, 41
+8. glider at 59, 17
+------ Generation 98 ------
+Total Life Beings: 8
+Total Other Beings: 19
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 0
+toad: 1
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 4
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. block at 38, 39
+3. block at 39, 38
+4. toad at 44, 41
+5. glider at 45, 32
+6. glider at 52, 24
+7. block at 53, 41
+8. glider at 60, 17
+------ Generation 99 ------
+Total Life Beings: 7
+Total Other Beings: 15
++++++++++++++++++++++++++++
+beehive: 0
+loaf: 0
+boat: 0
+tub: 0
+blinker: 2
+toad: 0
+beacon: 0
+glider: 3
+light-weight spaceship: 0
+block: 2
++++++++++++++++++++++++++++
+1. block at 19, 39
+2. blinker at 34, 41
+3. glider at 45, 32
+4. blinker at 46, 41
+5. glider at 52, 24
+6. block at 53, 41
+7. glider at 60, 17
 ======= Incidence % =======
-beehive: 75.0 %
+beehive: 0.64 %
 loaf: 0.0 %
-boat: 0.0 %
+boat: 1.54 %
 tub: 0.0 %
-blinker: 0.0 %
-toad: 0.0 %
+blinker: 5.84 %
+toad: 0.96 %
 beacon: 0.0 %
-glider: 0.0 %
+glider: 9.88 %
 light-weight spaceship: 0.0 %
-block: 0.0 %
-others: 25.0 %
+block: 15.78 %
+others: 65.36 %
