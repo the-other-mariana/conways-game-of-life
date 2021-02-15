@@ -31,14 +31,16 @@ With `<size_number>` and `<number_of_generations>` as integer number parameters,
 
 ### Run Example 1
 
-This is the coolest interesting example I found on the web to debug and test. <br />
+This is the coolest interesting example I found on the web to debug and test. This is the example you run on step 4. <br />
 
 ```bash
 $: python conway.py -s 80 -g 200 -i config.dat
 ```
 This example is on the root folder so you don't need to move any file from the repo as it is. <br />
 
-To run the following examples, go to folder (other-configs)[]
+To run the following examples, go to folder [other-configs](https://github.com/the-other-mariana/conways-game-of-life/tree/master/other-configs) and move the `.dat` file you want to test to the root folder, then you can type the commands below. <br />
+
+*The folder contains the corresponding output report to each configuration if you want to check them.*
 
 ### Run Example 2
 
@@ -66,7 +68,7 @@ $: python conway.py -s 42 -g 200 -i config4.dat
 
 ### Run Example 5
 
-Another quite interesting example to check gliders and oscilators. <br />
+Small example. Another quite interesting example to check gliders and oscilators. <br />
 
 ```bash
 $: python conway.py -s 20 -g 60 -i config5.dat
@@ -78,7 +80,7 @@ Language: `Python 3.8.1`
 
 ### Input
 - The simulation always takes as input file the [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file, which defines the initial configuration of the simulation. 
-- This [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file was written through an auxiliar script called [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py), that writes every 'alive' cell as `x y` coordinates on a single line each, where x and y are separated by spaces.
+- This [config.dat](https://github.com/the-other-mariana/conways-game-of-life/blob/master/config.dat) file was written through an auxiliar script called [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py), that writes every 'alive' cell as `j i` grid coordinates on a single line each, where j (x) and i (y) are separated by spaces. If you have a `i j` format file it's ok, your example will only be rotated 90°.
 - *Optional:* You can create your own initial config by changing the `choice` list inside the [write-config-test.py](https://github.com/the-other-mariana/conways-game-of-life/blob/master/write-config-test.py) script. Then, open Powershell and type:
 
 ```bash
