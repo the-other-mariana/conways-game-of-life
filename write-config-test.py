@@ -9,7 +9,7 @@ data2 = [(40, 20), (40, 21), (41, 20), (41, 21), (40, 30), (39, 30), (41, 30), (
 
 
 # choose
-choice = data2
+choice = data
 
 f = open("config.dat", "w")
 data_str = ""

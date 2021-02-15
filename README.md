@@ -15,7 +15,7 @@ This is a simulation coded in Python of the cellular automaton model created by 
 $: pip install numpy
 $: pip install matplotlib
 ```
-4. In order to run the simulation as it is, now type:
+4. In order to run the simulation with Example 1, now type:
 ```bash
 $: python conway.py -s 80 -g 200 -i config.dat
 ```
@@ -23,11 +23,54 @@ This will make a Conway Simulation with grid size 80x80 and run 200 generations,
 
 5. At the end of the simulation, you will see the text file [report.txt](https://github.com/the-other-mariana/conways-game-of-life/blob/master/report.txt) with all the reported Life beings that were tracked throughout every moment in time during the simulation, as well as their percentage of appearance at the **bottom** of the document.
 
-### General Runs
+### Further Runs
 ```bash
 $: python conway.py -s <size_number> -g <number_of_generations> -i <init_file>
 ```
 With `<size_number>` and `<number_of_generations>` as integer number parameters, and `<init_file>` as the file name of the initial configuration input file. <br />
+
+### Run Example 1
+
+This is the coolest interesting example I found on the web to debug and test. <br />
+
+```bash
+$: python conway.py -s 80 -g 200 -i config.dat
+```
+This example is on the root folder so you don't need to move any file from the repo as it is. <br />
+
+To run the following examples, go to folder (other-configs)[]
+
+### Run Example 2
+
+This is another interesting example I found on the web. <br />
+
+```bash
+$: python conway.py -s 80 -g 200 -i config2.dat
+```
+
+### Run Example 3
+
+Small example. Debugs how the pogram works with Others category and Rotation of seeds. <br />
+
+```bash
+$: python conway.py -s 40 -g 20 -i config3.dat
+```
+
+### Run Example 4
+
+Another quite interesting example of a glider gun. <br />
+
+```bash
+$: python conway.py -s 42 -g 200 -i config4.dat
+```
+
+### Run Example 5
+
+Another quite interesting example to check gliders and oscilators. <br />
+
+```bash
+$: python conway.py -s 20 -g 60 -i config5.dat
+```
 
 ## Specifications
 
